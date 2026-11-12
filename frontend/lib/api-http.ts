@@ -48,6 +48,8 @@ const isServer = typeof window === 'undefined';
 const serverOrigin = (process.env.BACKEND_URL ?? process.env.API_URL ?? 'http://127.0.0.1:8000').replace(/\/+$/, '');
 const BASE = `${isServer ? serverOrigin : ''}/api/v1`;
 const REG_TOKEN_KEY = 'agridirect-registration-token';
+/** Fired on window when an authenticated call is refused; the session provider signs the user out. */
+const SESSION_LOST_EVENT = 'agridirect:session-lost';
 
 let accessToken: string | null = null;
 let refreshInFlight: Promise<Session | null> | null = null;
@@ -110,6 +112,11 @@ async function request<T>(method: string, path: string, body?: unknown, auth = t
   if (auth && !accessToken) await refreshSession();
   let res = await send(method, path, body);
   if (res.status === 401 && auth && (await refreshSession())) res = await send(method, path, body);
+  if (res.status === 401 && auth && !isServer) {
+    // The session is gone (expired, signed out elsewhere, or the account no longer exists).
+    accessToken = null;
+    window.dispatchEvent(new Event(SESSION_LOST_EVENT));
+  }
   if (!res.ok) throw await parseError(res);
   if (res.status === 204) return undefined as T;
   return (await res.json()) as T;

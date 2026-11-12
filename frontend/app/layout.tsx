@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   description: 'Crop demand prediction and a direct farmer-to-company marketplace.',
   manifest: '/manifest.webmanifest',
   icons: { icon: '/icon.svg' },
+  // The app has its own English / Hindi / Marathi switch. Browser auto-translate rewrites
+  // the page underneath React and crashes it, so ask browsers not to offer it.
+  other: { google: 'notranslate' },
 };
 
 export const viewport: Viewport = {
@@ -30,8 +33,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const locale = await getLocale();
   const messages = await getMessages();
   return (
-    <html lang={locale} className={`${sans.variable} ${serif.variable} ${deva.variable}`}>
-      <body className="min-h-screen bg-soil-50 font-sans text-leaf-800 antialiased">
+    <html lang={locale} translate="no" className={`${sans.variable} ${serif.variable} ${deva.variable}`}>
+      <body translate="no" className="notranslate min-h-screen bg-soil-50 font-sans text-leaf-800 antialiased">
         <NextIntlClientProvider locale={locale} messages={messages} timeZone="Asia/Kolkata">
           <SessionProvider>{children}</SessionProvider>
         </NextIntlClientProvider>

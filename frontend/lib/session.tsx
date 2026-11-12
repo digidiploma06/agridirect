@@ -36,6 +36,14 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     void refresh();
   }, [refresh]);
 
+  // When the server refuses our session, drop it so the page sends the user to the login screen
+  // instead of showing stale data.
+  useEffect(() => {
+    const onLost = () => setSession(null);
+    window.addEventListener('agridirect:session-lost', onLost);
+    return () => window.removeEventListener('agridirect:session-lost', onLost);
+  }, []);
+
   const value = useMemo(() => ({ session, ready, refresh, signOut }), [session, ready, refresh, signOut]);
   return <SessionContext.Provider value={value}>{children}</SessionContext.Provider>;
 }
