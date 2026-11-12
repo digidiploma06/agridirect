@@ -43,7 +43,10 @@ export type { AdviceInput, CompanyOnboarding, FarmerOnboarding, NewDealRequest, 
 export const PRIVACY_NOTICE_VERSION = 'demo-2026-10';
 
 const isServer = typeof window === 'undefined';
-const BASE = `${isServer ? (process.env.API_URL ?? 'http://127.0.0.1:8000') : ''}/api/v1`;
+// Server-side rendering calls the backend directly: on Vercel through the
+// `backend` service binding (BACKEND_URL, injected at runtime), otherwise API_URL.
+const serverOrigin = (process.env.BACKEND_URL ?? process.env.API_URL ?? 'http://127.0.0.1:8000').replace(/\/+$/, '');
+const BASE = `${isServer ? serverOrigin : ''}/api/v1`;
 const REG_TOKEN_KEY = 'agridirect-registration-token';
 
 let accessToken: string | null = null;

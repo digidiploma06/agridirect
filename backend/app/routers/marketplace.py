@@ -33,6 +33,8 @@ def _save_photo(data_url: str) -> str:
     The browser already re-encodes photos through a canvas, which strips EXIF/GPS."""
     if data_url.startswith("/api/v1/uploads/"):
         return data_url
+    if len(data_url) > MAX_PHOTO_BYTES * 2:
+        raise ApiError(422, "photo_size")
     try:
         header, b64 = data_url.split(",", 1)
         mime = header.split(";")[0].removeprefix("data:")
@@ -44,6 +46,8 @@ def _save_photo(data_url: str) -> str:
         raise ApiError(422, "photo_type")
     if len(raw) > MAX_PHOTO_BYTES:
         raise ApiError(422, "photo_size")
+    if settings.photo_storage == "inline":
+        return data_url  # validated above; stored in the listing row
     settings.upload_dir.mkdir(parents=True, exist_ok=True)
     name = f"{secrets.token_hex(12)}.{ext}"
     (settings.upload_dir / name).write_bytes(raw)

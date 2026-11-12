@@ -672,6 +672,7 @@
     "already_reviewed": "You have already rated this deal.",
     "already_decided": "This company has already been reviewed.",
     "rate_limited": "Too many requests. Please wait a minute and try again.",
-    "invalid_request": "Some details are missing or not valid. Please check the form."
+    "invalid_request": "Some details are missing or not valid. Please check the form.",
+    "pipeline_external": "Data updates and model training run outside this deployment. Run the pipeline from a computer or scheduled job connected to the same database."
   }
 }

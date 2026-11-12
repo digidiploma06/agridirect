@@ -31,7 +31,7 @@ Manual start (any OS), in two terminals:
 cd backend
 python -m venv .venv
 .venv\Scripts\activate            # macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements-ml.txt
 uvicorn app.main:app --port 8000
 ```
 
@@ -68,10 +68,47 @@ Walkthrough (PRD acceptance flow):
 Data is stored in `backend/data/agridirect.db`. To start again from scratch,
 stop the API and delete the `backend/data` folder.
 
+## Deploy on Vercel
+
+`vercel.json` deploys this repository as one Vercel project with two services
+on one domain:
+
+- `frontend` (Next.js) is public on `/`.
+- `backend` (FastAPI) is public on `/api/*`. The frontend also calls it
+  server-side through a service binding (`BACKEND_URL`).
+
+Vercel functions have no permanent disk, so the deployed backend differs from
+the local one in three ways:
+
+1. **It needs a PostgreSQL database.** Add one (for example Neon from the Vercel
+   Marketplace) so that `DATABASE_URL` or `POSTGRES_URL` is set. Without it,
+   accounts and listings disappear whenever an instance restarts.
+2. **The ML pipeline does not run on Vercel.** The deployed API only reads
+   predictions from the database. Fill and refresh them from your PC (or any
+   scheduled job) pointed at the same database:
+
+   ```
+   cd backend
+   set DATABASE_URL=postgresql://...        (the same URL Vercel uses)
+   .venv\Scripts\python -m ml.pipeline run
+   ```
+
+   Run it again whenever you want fresh predictions. Until the first run, crop
+   advice works but falls back to low-confidence neutral signals.
+3. **Listing photos are stored in the database row** instead of on disk.
+
+Set these environment variables in the Vercel project: `JWT_SECRET` (a long
+random string), and decide on `OTP_MODE` and `SEED_DEMO`. With the defaults
+(`OTP_MODE=demo`, `SEED_DEMO=true`) the login code is shown on the login page,
+so **anyone who opens the site can sign in to any account, including the demo
+admin**. That is fine for a private demo and not for real users.
+
 ## What is in the box
 
 ```
 frontend/   Next.js 14 + Tailwind + next-intl (en / hi / mr), installable PWA
+tools/     build_catalogue.py: crops, districts and mandis (single source)
+vercel.json Vercel services: frontend on /, backend on /api/*
 backend/
   app/      FastAPI: auth, profiles, listings, requirements, matching, deals, admin
   ml/       ingestion, features, training + validation, prediction, daily pipeline

@@ -233,14 +233,6 @@ def render_card(c: dict) -> str:
 """
 
 
-def ui_metrics(card: dict) -> list[dict]:
-    """Rows for the admin 'Data and model health' table."""
-    return [
-        {"cropId": r["cropId"], "mapeModel": round(r["mapeModel"], 1), "mapeBaseline": round(r["mapeBaseline"], 1), "macroF1": round(r["macroF1"], 2), "macroF1Baseline": round(r["macroF1Baseline"], 2)}
-        for r in card.get("perCrop", [])
-    ]
-
-
 if __name__ == "__main__":
     from app.db import SessionLocal, init_db
 

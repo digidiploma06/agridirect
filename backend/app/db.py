@@ -15,7 +15,7 @@ if _is_sqlite and ":memory:" not in settings.database_url:
 engine = create_engine(
     settings.database_url,
     connect_args={"check_same_thread": False, "timeout": 30} if _is_sqlite else {},
-    pool_pre_ping=not _is_sqlite,
+    **({} if _is_sqlite else {"pool_pre_ping": True, "pool_size": 3, "max_overflow": 2, "pool_recycle": 300}),
 )
 
 if _is_sqlite:

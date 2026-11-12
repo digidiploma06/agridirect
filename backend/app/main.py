@@ -28,7 +28,6 @@ API = "/api/v1"
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     init_db()
-    settings.upload_dir.mkdir(parents=True, exist_ok=True)
     if settings.jwt_secret.startswith("dev-only"):
         log.warning("JWT_SECRET is the development default. Set a real secret in backend/.env before deploying.")
     if settings.seed_demo:
@@ -37,11 +36,17 @@ async def lifespan(_: FastAPI):
         with SessionLocal() as db:
             if seed_demo(db):
                 log.info("Demo accounts and listings loaded.")
-    from ml.pipeline import bootstrap, start_scheduler
+    if settings.serverless and settings.database_url.startswith("sqlite"):
+        log.error("No DATABASE_URL set: using a throw-away SQLite file. Accounts and listings will not persist. Attach a PostgreSQL database.")
+    if settings.otp_mode == "demo" and settings.serverless:
+        log.warning("OTP_MODE=demo on a public deployment: login codes are shown on the login page, so anyone can sign in to any account.")
+    scheduler = None
+    if settings.run_pipeline:  # needs the ML packages (requirements-ml.txt); never on serverless
+        from ml.pipeline import bootstrap, start_scheduler
 
-    bootstrap()
-    scheduler = start_scheduler() if settings.enable_scheduler else None
-    print(f"\nAgriDirect API ready  |  OTP mode: {settings.otp_mode}  |  data mode: {settings.data_mode}  |  docs: http://localhost:8000/docs\n", flush=True)
+        bootstrap()
+        scheduler = start_scheduler() if settings.enable_scheduler else None
+    print(f"\nAgriDirect API ready  |  OTP mode: {settings.otp_mode}  |  data mode: {settings.data_mode}  |  pipeline in-process: {settings.run_pipeline}\n", flush=True)
     yield
     if scheduler:
         scheduler.stop_event.set()  # type: ignore[attr-defined]
@@ -88,10 +93,12 @@ async def security_and_rate_limit(request: Request, call_next):
 for r in (auth.router, insights.router, marketplace.router, deals.router, admin.router):
     app.include_router(r, prefix=API)
 
-settings.upload_dir.mkdir(parents=True, exist_ok=True)
-app.mount(f"{API}/uploads", StaticFiles(directory=settings.upload_dir), name="uploads")
+if settings.photo_storage == "disk":
+    settings.upload_dir.mkdir(parents=True, exist_ok=True)
+    app.mount(f"{API}/uploads", StaticFiles(directory=settings.upload_dir), name="uploads")
 
 
+@app.get(f"{API}/health", tags=["system"], include_in_schema=False)
 @app.get("/health", tags=["system"])
 def health():
     return {"status": "ok"}

@@ -27,9 +27,26 @@ def _bool(name: str, default: bool) -> bool:
     return os.environ.get(name, str(default)).strip().lower() in {"1", "true", "yes", "on"}
 
 
+# Serverless hosts (Vercel) give each instance a read-only code folder and a
+# small throw-away /tmp. Nothing durable can live on disk there, so the
+# database must be an external PostgreSQL and the ML pipeline runs elsewhere.
+SERVERLESS = bool(os.environ.get("VERCEL"))
+DATA_DIR = Path("/tmp/agridirect") if SERVERLESS else BACKEND_DIR / "data"
+
+
+def _database_url() -> str:
+    url = os.environ.get("DATABASE_URL") or os.environ.get("POSTGRES_URL") or f"sqlite:///{(DATA_DIR / 'agridirect.db').as_posix()}"
+    # Hosted Postgres providers hand out postgres:// or postgresql:// URLs; SQLAlchemy needs the driver named.
+    for prefix in ("postgres://", "postgresql://"):
+        if url.startswith(prefix):
+            return "postgresql+psycopg://" + url[len(prefix):]
+    return url
+
+
 @dataclass(frozen=True)
 class Settings:
-    database_url: str = os.environ.get("DATABASE_URL", f"sqlite:///{(BACKEND_DIR / 'data' / 'agridirect.db').as_posix()}")
+    serverless: bool = SERVERLESS
+    database_url: str = _database_url()
     jwt_secret: str = os.environ.get("JWT_SECRET", "dev-only-change-me-dev-only-change-me")
     access_ttl_min: int = int(os.environ.get("ACCESS_TTL_MIN", "15"))
     refresh_ttl_days: int = int(os.environ.get("REFRESH_TTL_DAYS", "7"))
@@ -42,14 +59,19 @@ class Settings:
     rate_limit_per_min: int = int(os.environ.get("RATE_LIMIT_PER_MIN", "600"))
     data_mode: str = os.environ.get("DATA_MODE", "synthetic")
     data_gov_api_key: str = os.environ.get("DATA_GOV_API_KEY", "")
-    enable_scheduler: bool = _bool("ENABLE_SCHEDULER", True)
+    # Ingestion, training and prediction refresh inside the API process. Off on
+    # serverless: run `python -m ml.pipeline run` against the same database instead.
+    run_pipeline: bool = _bool("RUN_PIPELINE", not SERVERLESS)
+    enable_scheduler: bool = _bool("ENABLE_SCHEDULER", not SERVERLESS)
+    # "disk": photos saved under data/uploads. "inline": kept in the database row (no writable disk needed).
+    photo_storage: str = os.environ.get("PHOTO_STORAGE", "inline" if SERVERLESS else "disk")
     seed_demo: bool = _bool("SEED_DEMO", True)
-    cookie_secure: bool = _bool("COOKIE_SECURE", False)
+    cookie_secure: bool = _bool("COOKIE_SECURE", SERVERLESS)
     cors_origins: list[str] = field(
         default_factory=lambda: [o.strip() for o in os.environ.get("CORS_ORIGINS", "http://localhost:3000").split(",") if o.strip()]
     )
-    upload_dir: Path = BACKEND_DIR / "data" / "uploads"
-    model_dir: Path = BACKEND_DIR / "data" / "models"
+    upload_dir: Path = DATA_DIR / "uploads"
+    model_dir: Path = DATA_DIR / "models"
     privacy_notice_version: str = "demo-2026-10"
 
 

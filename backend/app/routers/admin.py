@@ -8,6 +8,7 @@ from typing import Optional
 from fastapi import APIRouter, BackgroundTasks, Request, Response
 from sqlalchemy import func, select
 
+from ..config import settings
 from ..db import SessionLocal
 from ..deps import Admin, CurrentUser, Db, audit, notify
 from ..domain.dates import now_iso
@@ -130,6 +131,21 @@ def resolve_flag(flag_id: str, body: FlagResolve, admin: Admin, db: Db, request:
     db.commit()
 
 
+def ui_metrics(card: dict) -> list[dict]:
+    """Rows for the admin 'Data and model health' table."""
+    return [
+        {"cropId": r["cropId"], "mapeModel": round(r["mapeModel"], 1), "mapeBaseline": round(r["mapeBaseline"], 1), "macroF1": round(r["macroF1"], 2), "macroF1Baseline": round(r["macroF1Baseline"], 2)}
+        for r in card.get("perCrop", [])
+    ]
+
+
+def _require_pipeline() -> None:
+    """Ingestion and training need the ML packages and a writable disk, which the
+    serverless deployment does not have. Run `python -m ml.pipeline` elsewhere."""
+    if not settings.run_pipeline:
+        raise ApiError(409, "pipeline_external")
+
+
 def _pipeline_status(db) -> list[dict]:
     out = []
     for source in ("mandi", "weather", "soil"):
@@ -146,8 +162,6 @@ def _pipeline_status(db) -> list[dict]:
 
 @router.get("/admin/system")
 def system_health(admin: Admin, db: Db):
-    from ml.train import ui_metrics
-
     model = active_model(db)
     card = (model.metrics if model else {}) or {}
     entries = db.scalars(select(AuditLog).order_by(AuditLog.at.desc()).limit(25)).all()
@@ -175,6 +189,7 @@ def model_card(admin: Admin, db: Db):
 @router.post("/admin/pipeline/{source}/run", status_code=204)
 def run_pipeline(source: str, admin: Admin, db: Db, request: Request):
     """Re-runs one ingestion source now and refreshes predictions."""
+    _require_pipeline()
     from ml.ingest import SOURCES, run_source
     from ml.predict import refresh_predictions
 
@@ -195,6 +210,7 @@ def _retrain_job() -> None:
 
 @router.post("/admin/model/retrain", status_code=202)
 def retrain(admin: Admin, db: Db, background: BackgroundTasks, request: Request):
+    _require_pipeline()
     audit(db, admin.id, "model.retrain", "model", "price-forecaster", ip=_ip(request))
     db.commit()
     background.add_task(_retrain_job)
@@ -204,6 +220,7 @@ def retrain(admin: Admin, db: Db, background: BackgroundTasks, request: Request)
 @router.post("/admin/market/upload")
 async def upload_market_csv(request: Request, admin: Admin, db: Db):
     """Manual mandi data upload (text/csv body). See ml/ingest.py for the columns."""
+    _require_pipeline()
     from ml.ingest import import_market_csv
 
     body = await request.body()

@@ -5,13 +5,15 @@ FastAPI + SQLAlchemy (SQLite by default) + LightGBM. Requires Python 3.10+.
 ```bash
 python -m venv .venv
 .venv\Scripts\activate            # macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements-ml.txt
 uvicorn app.main:app --port 8000
 ```
 
 - API base path: `http://localhost:8000/api/v1`
 - Interactive docs (OpenAPI): `http://localhost:8000/docs`
-- Tests: `python -m pytest -q` (unit tests plus the end-to-end acceptance flow; uses a temporary database)
+- Tests: `python -m pytest -q` (unit tests plus the end-to-end acceptance flow; uses a temporary database).
+  Set `TEST_DATABASE_URL=postgresql://...` to run the same suite on PostgreSQL.
+- `requirements.txt` is the API only (what Vercel installs); `requirements-ml.txt` adds the ML pipeline and tests.
 
 On first start the server creates `data/agridirect.db`, loads the demo
 accounts, generates sample market data, trains the model and writes
@@ -23,7 +25,9 @@ Copy `.env.example` to `.env` to change anything. Every setting has a local defa
 
 | Setting | Default | Meaning |
 |---|---|---|
-| `DATABASE_URL` | SQLite file in `data/` | Any SQLAlchemy URL. For PostgreSQL also `pip install "psycopg[binary]"` |
+| `DATABASE_URL` | SQLite file in `data/` | Any SQLAlchemy URL; `postgres://` and `postgresql://` URLs work as given. `POSTGRES_URL` is read too |
+| `RUN_PIPELINE` | `true` (off on Vercel) | Ingest, train and refresh predictions inside the API process |
+| `PHOTO_STORAGE` | `disk` (`inline` on Vercel) | Where listing photos are kept |
 | `JWT_SECRET` | development value | **Must** be changed before any deployment |
 | `OTP_MODE` | `demo` | `demo` shows the OTP on the login page and in this console. `sms` needs a provider in `app/sms.py` |
 | `DATA_MODE` | `synthetic` | `synthetic` = generated sample data. `live` = data.gov.in + Open-Meteo + SoilGrids |

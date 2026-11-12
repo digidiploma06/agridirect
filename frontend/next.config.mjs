@@ -11,8 +11,9 @@ const securityHeaders = [
   { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(self)' },
 ];
 
-// The browser always calls /api/v1 on this origin; Next.js forwards it to the
-// FastAPI backend. Set API_URL in .env.local if the backend runs elsewhere.
+// The browser always calls /api/v1 on this origin. Locally, Next.js forwards it
+// to the FastAPI backend (API_URL). On Vercel the top-level rewrite in
+// vercel.json sends /api/* to the backend service before it reaches Next.js.
 const API_URL = process.env.API_URL ?? 'http://127.0.0.1:8000';
 
 /** @type {import('next').NextConfig} */

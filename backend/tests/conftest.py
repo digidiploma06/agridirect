@@ -3,7 +3,7 @@ import os
 import tempfile
 
 _tmp = tempfile.mkdtemp(prefix="agridirect-test-")
-os.environ["DATABASE_URL"] = f"sqlite:///{_tmp}/test.db"
+os.environ["DATABASE_URL"] = os.environ.get("TEST_DATABASE_URL") or f"sqlite:///{_tmp}/test.db"  # set TEST_DATABASE_URL to run the suite on PostgreSQL
 os.environ["ENABLE_SCHEDULER"] = "false"
 os.environ["OTP_MODE"] = "demo"
 os.environ["DATA_MODE"] = "synthetic"
