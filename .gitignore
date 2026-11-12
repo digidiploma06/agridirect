@@ -1,0 +1,17 @@
+node_modules/
+.next/
+coverage/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+
+# backend
+backend/.venv/
+backend/data/
+__pycache__/
+.pytest_cache/
+.coverage
+.venv/
+.DS_Store
+Thumbs.db

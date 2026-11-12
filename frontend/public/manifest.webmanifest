@@ -1,0 +1,13 @@
+{
+  "name": "AgriDirect",
+  "short_name": "AgriDirect",
+  "description": "Crop demand prediction and a direct farmer-to-company marketplace.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f3eee3",
+  "theme_color": "#f3eee3",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

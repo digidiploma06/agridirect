@@ -1,0 +1,9 @@
+{
+  "extends": ["next/core-web-vitals"],
+  "rules": {
+    "no-restricted-syntax": [
+      "error",
+      { "selector": "TSAnyKeyword", "message": "Do not use `any` (TRD section 12)." }
+    ]
+  }
+}

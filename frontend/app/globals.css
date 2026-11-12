@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.025em;
+  }
+
+  /* Devanagari has no tight-tracking tradition; keep it natural. */
+  html:lang(hi) h1,
+  html:lang(hi) h2,
+  html:lang(hi) h3,
+  html:lang(mr) h1,
+  html:lang(mr) h2,
+  html:lang(mr) h3 {
+    letter-spacing: 0;
+  }
+
+  /* Devanagari needs a little more line height to keep matras readable. */
+  html:lang(hi),
+  html:lang(mr) {
+    line-height: 1.65;
+  }
+
+  ::selection {
+    background: #f9dccb;
+  }
+}
+
+.leaflet-container {
+  font: inherit;
+}

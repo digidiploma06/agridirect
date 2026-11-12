@@ -1,0 +1,2557 @@
+{
+ "crops": [
+  {
+   "id": "rice",
+   "family": "cereal",
+   "seasons": [
+    "kharif"
+   ],
+   "durationDays": 130,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Paddy(Dhan)(Common)",
+    "Rice"
+   ],
+   "water": "high",
+   "soils": [
+    "alluvial",
+    "laterite",
+    "red"
+   ],
+   "avoidSoils": [],
+   "rainfedOkZones": [
+    "konkan",
+    "eastern",
+    "ghat"
+   ],
+   "zones": {
+    "konkan": 1,
+    "ghat": 0.6,
+    "scarcity": 0,
+    "assured": 0.2,
+    "khandesh": 0.2,
+    "central": 0.4,
+    "eastern": 1
+   },
+   "market": {
+    "basePrice": 2400,
+    "weeklySigma": 0.012,
+    "seasonAmp": 0.04,
+    "peakWeek": 30,
+    "supplyBeta": 0.25,
+    "baseArrivalsT": 900
+   }
+  },
+  {
+   "id": "wheat",
+   "family": "cereal",
+   "seasons": [
+    "rabi"
+   ],
+   "durationDays": 120,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Wheat"
+   ],
+   "water": "medium",
+   "soils": [
+    "black",
+    "alluvial"
+   ],
+   "avoidSoils": [
+    "laterite"
+   ],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0,
+    "ghat": 0.7,
+    "scarcity": 0.5,
+    "assured": 0.7,
+    "khandesh": 0.8,
+    "central": 0.8,
+    "eastern": 0.5
+   },
+   "market": {
+    "basePrice": 2700,
+    "weeklySigma": 0.012,
+    "seasonAmp": 0.04,
+    "peakWeek": 46,
+    "supplyBeta": 0.25,
+    "baseArrivalsT": 700
+   }
+  },
+  {
+   "id": "jowar",
+   "family": "cereal",
+   "seasons": [
+    "kharif",
+    "rabi"
+   ],
+   "durationDays": 115,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Jowar(Sorghum)"
+   ],
+   "water": "low",
+   "soils": [
+    "black"
+   ],
+   "avoidSoils": [
+    "laterite"
+   ],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0,
+    "ghat": 0.5,
+    "scarcity": 1,
+    "assured": 0.9,
+    "khandesh": 0.7,
+    "central": 0.6,
+    "eastern": 0.3
+   },
+   "market": {
+    "basePrice": 3000,
+    "weeklySigma": 0.018,
+    "seasonAmp": 0.05,
+    "peakWeek": 34,
+    "supplyBeta": 0.3,
+    "baseArrivalsT": 380
+   }
+  },
+  {
+   "id": "bajra",
+   "family": "cereal",
+   "seasons": [
+    "kharif"
+   ],
+   "durationDays": 85,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Bajra(Pearl Millet/Cumbu)"
+   ],
+   "water": "low",
+   "soils": [
+    "red",
+    "black"
+   ],
+   "avoidSoils": [
+    "laterite"
+   ],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0,
+    "ghat": 0.5,
+    "scarcity": 1,
+    "assured": 0.6,
+    "khandesh": 0.8,
+    "central": 0.2,
+    "eastern": 0
+   },
+   "market": {
+    "basePrice": 2500,
+    "weeklySigma": 0.018,
+    "seasonAmp": 0.05,
+    "peakWeek": 28,
+    "supplyBeta": 0.3,
+    "baseArrivalsT": 300
+   }
+  },
+  {
+   "id": "maize",
+   "family": "cereal",
+   "seasons": [
+    "kharif",
+    "rabi",
+    "zaid"
+   ],
+   "durationDays": 110,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Maize"
+   ],
+   "water": "medium",
+   "soils": [
+    "black",
+    "alluvial"
+   ],
+   "avoidSoils": [],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0.2,
+    "ghat": 0.8,
+    "scarcity": 0.8,
+    "assured": 0.7,
+    "khandesh": 0.9,
+    "central": 0.6,
+    "eastern": 0.5
+   },
+   "market": {
+    "basePrice": 2100,
+    "weeklySigma": 0.02,
+    "seasonAmp": 0.06,
+    "peakWeek": 30,
+    "supplyBeta": 0.35,
+    "baseArrivalsT": 420
+   }
+  },
+  {
+   "id": "gram",
+   "family": "pulse",
+   "seasons": [
+    "rabi"
+   ],
+   "durationDays": 105,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Bengal Gram(Gram)(Whole)"
+   ],
+   "water": "low",
+   "soils": [
+    "black"
+   ],
+   "avoidSoils": [
+    "laterite"
+   ],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0,
+    "ghat": 0.6,
+    "scarcity": 0.8,
+    "assured": 0.9,
+    "khandesh": 0.8,
+    "central": 0.9,
+    "eastern": 0.6
+   },
+   "market": {
+    "basePrice": 5800,
+    "weeklySigma": 0.015,
+    "seasonAmp": 0.05,
+    "peakWeek": 44,
+    "supplyBeta": 0.3,
+    "baseArrivalsT": 260
+   }
+  },
+  {
+   "id": "tur",
+   "family": "pulse",
+   "seasons": [
+    "kharif"
+   ],
+   "durationDays": 170,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Arhar (Tur/Red Gram)(Whole)",
+    "Arhar(Tur/Red Gram)(Whole)",
+    "Tur"
+   ],
+   "water": "low",
+   "soils": [
+    "black"
+   ],
+   "avoidSoils": [
+    "laterite"
+   ],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0.1,
+    "ghat": 0.5,
+    "scarcity": 0.8,
+    "assured": 1,
+    "khandesh": 0.7,
+    "central": 1,
+    "eastern": 0.6
+   },
+   "market": {
+    "basePrice": 7200,
+    "weeklySigma": 0.015,
+    "seasonAmp": 0.05,
+    "peakWeek": 26,
+    "supplyBeta": 0.3,
+    "baseArrivalsT": 90
+   }
+  },
+  {
+   "id": "moong",
+   "family": "pulse",
+   "seasons": [
+    "kharif",
+    "zaid"
+   ],
+   "durationDays": 70,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Green Gram (Moong)(Whole)"
+   ],
+   "water": "low",
+   "soils": [
+    "black",
+    "red"
+   ],
+   "avoidSoils": [],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0.1,
+    "ghat": 0.5,
+    "scarcity": 0.7,
+    "assured": 0.9,
+    "khandesh": 0.8,
+    "central": 0.7,
+    "eastern": 0.4
+   },
+   "market": {
+    "basePrice": 7800,
+    "weeklySigma": 0.016,
+    "seasonAmp": 0.05,
+    "peakWeek": 22,
+    "supplyBeta": 0.3,
+    "baseArrivalsT": 70
+   }
+  },
+  {
+   "id": "urad",
+   "family": "pulse",
+   "seasons": [
+    "kharif"
+   ],
+   "durationDays": 80,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Black Gram (Urd Beans)(Whole)"
+   ],
+   "water": "low",
+   "soils": [
+    "black"
+   ],
+   "avoidSoils": [],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0.2,
+    "ghat": 0.5,
+    "scarcity": 0.6,
+    "assured": 0.9,
+    "khandesh": 0.8,
+    "central": 0.7,
+    "eastern": 0.4
+   },
+   "market": {
+    "basePrice": 7000,
+    "weeklySigma": 0.016,
+    "seasonAmp": 0.05,
+    "peakWeek": 24,
+    "supplyBeta": 0.3,
+    "baseArrivalsT": 60
+   }
+  },
+  {
+   "id": "soybean",
+   "family": "oilseed",
+   "seasons": [
+    "kharif"
+   ],
+   "durationDays": 100,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Soyabean",
+    "Soybean"
+   ],
+   "water": "medium",
+   "soils": [
+    "black"
+   ],
+   "avoidSoils": [
+    "laterite"
+   ],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0,
+    "ghat": 0.7,
+    "scarcity": 0.5,
+    "assured": 1,
+    "khandesh": 0.6,
+    "central": 1,
+    "eastern": 0.5
+   },
+   "market": {
+    "basePrice": 4600,
+    "weeklySigma": 0.016,
+    "seasonAmp": 0.05,
+    "peakWeek": 28,
+    "supplyBeta": 0.3,
+    "baseArrivalsT": 260
+   }
+  },
+  {
+   "id": "groundnut",
+   "family": "oilseed",
+   "seasons": [
+    "kharif",
+    "zaid"
+   ],
+   "durationDays": 115,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Groundnut"
+   ],
+   "water": "medium",
+   "soils": [
+    "red",
+    "alluvial"
+   ],
+   "avoidSoils": [],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0.3,
+    "ghat": 0.8,
+    "scarcity": 0.7,
+    "assured": 0.6,
+    "khandesh": 0.7,
+    "central": 0.4,
+    "eastern": 0.3
+   },
+   "market": {
+    "basePrice": 6200,
+    "weeklySigma": 0.015,
+    "seasonAmp": 0.05,
+    "peakWeek": 24,
+    "supplyBeta": 0.3,
+    "baseArrivalsT": 150
+   }
+  },
+  {
+   "id": "sunflower",
+   "family": "oilseed",
+   "seasons": [
+    "kharif",
+    "rabi"
+   ],
+   "durationDays": 95,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Sunflower"
+   ],
+   "water": "low",
+   "soils": [
+    "black"
+   ],
+   "avoidSoils": [
+    "laterite"
+   ],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0,
+    "ghat": 0.4,
+    "scarcity": 0.8,
+    "assured": 0.9,
+    "khandesh": 0.5,
+    "central": 0.5,
+    "eastern": 0.2
+   },
+   "market": {
+    "basePrice": 6000,
+    "weeklySigma": 0.016,
+    "seasonAmp": 0.05,
+    "peakWeek": 30,
+    "supplyBeta": 0.3,
+    "baseArrivalsT": 60
+   }
+  },
+  {
+   "id": "cotton",
+   "family": "fibre",
+   "seasons": [
+    "kharif"
+   ],
+   "durationDays": 170,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Cotton"
+   ],
+   "water": "medium",
+   "soils": [
+    "black"
+   ],
+   "avoidSoils": [
+    "laterite"
+   ],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0,
+    "ghat": 0.2,
+    "scarcity": 0.5,
+    "assured": 0.9,
+    "khandesh": 1,
+    "central": 1,
+    "eastern": 0.4
+   },
+   "market": {
+    "basePrice": 7200,
+    "weeklySigma": 0.015,
+    "seasonAmp": 0.04,
+    "peakWeek": 30,
+    "supplyBeta": 0.25,
+    "baseArrivalsT": 500
+   }
+  },
+  {
+   "id": "sugarcane",
+   "family": "cash",
+   "seasons": [
+    "kharif",
+    "rabi"
+   ],
+   "durationDays": 365,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Sugarcane"
+   ],
+   "water": "high",
+   "soils": [
+    "black",
+    "alluvial"
+   ],
+   "avoidSoils": [
+    "laterite"
+   ],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0.1,
+    "ghat": 1,
+    "scarcity": 0.7,
+    "assured": 0.6,
+    "khandesh": 0.5,
+    "central": 0.2,
+    "eastern": 0.2
+   },
+   "market": {
+    "basePrice": 340,
+    "weeklySigma": 0.004,
+    "seasonAmp": 0.01,
+    "peakWeek": 20,
+    "supplyBeta": 0.05,
+    "baseArrivalsT": 6000
+   }
+  },
+  {
+   "id": "onion",
+   "family": "vegetable",
+   "seasons": [
+    "kharif",
+    "rabi"
+   ],
+   "durationDays": 130,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Onion"
+   ],
+   "water": "high",
+   "soils": [
+    "black",
+    "alluvial"
+   ],
+   "avoidSoils": [],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0.1,
+    "ghat": 0.9,
+    "scarcity": 1,
+    "assured": 0.6,
+    "khandesh": 0.8,
+    "central": 0.4,
+    "eastern": 0.2
+   },
+   "market": {
+    "basePrice": 1800,
+    "weeklySigma": 0.06,
+    "seasonAmp": 0.22,
+    "peakWeek": 40,
+    "supplyBeta": 0.9,
+    "baseArrivalsT": 1900
+   }
+  },
+  {
+   "id": "tomato",
+   "family": "vegetable",
+   "seasons": [
+    "kharif",
+    "rabi",
+    "zaid"
+   ],
+   "durationDays": 120,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Tomato"
+   ],
+   "water": "high",
+   "soils": [
+    "red",
+    "alluvial",
+    "black"
+   ],
+   "avoidSoils": [],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0.4,
+    "ghat": 0.9,
+    "scarcity": 0.6,
+    "assured": 0.6,
+    "khandesh": 0.6,
+    "central": 0.6,
+    "eastern": 0.5
+   },
+   "market": {
+    "basePrice": 1500,
+    "weeklySigma": 0.075,
+    "seasonAmp": 0.26,
+    "peakWeek": 27,
+    "supplyBeta": 0.95,
+    "baseArrivalsT": 640
+   }
+  },
+  {
+   "id": "potato",
+   "family": "vegetable",
+   "seasons": [
+    "rabi"
+   ],
+   "durationDays": 95,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Potato"
+   ],
+   "water": "medium",
+   "soils": [
+    "alluvial",
+    "red"
+   ],
+   "avoidSoils": [],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0,
+    "ghat": 0.9,
+    "scarcity": 0.5,
+    "assured": 0.4,
+    "khandesh": 0.4,
+    "central": 0.4,
+    "eastern": 0.3
+   },
+   "market": {
+    "basePrice": 1600,
+    "weeklySigma": 0.04,
+    "seasonAmp": 0.15,
+    "peakWeek": 44,
+    "supplyBeta": 0.6,
+    "baseArrivalsT": 500
+   }
+  },
+  {
+   "id": "chilli",
+   "family": "spice",
+   "seasons": [
+    "kharif",
+    "rabi"
+   ],
+   "durationDays": 160,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Chili Red",
+    "Dry Chillies"
+   ],
+   "water": "medium",
+   "soils": [
+    "black",
+    "red"
+   ],
+   "avoidSoils": [],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0.4,
+    "ghat": 0.6,
+    "scarcity": 0.6,
+    "assured": 0.7,
+    "khandesh": 0.9,
+    "central": 0.8,
+    "eastern": 0.8
+   },
+   "market": {
+    "basePrice": 14000,
+    "weeklySigma": 0.03,
+    "seasonAmp": 0.1,
+    "peakWeek": 34,
+    "supplyBeta": 0.5,
+    "baseArrivalsT": 80
+   }
+  },
+  {
+   "id": "turmeric",
+   "family": "spice",
+   "seasons": [
+    "kharif"
+   ],
+   "durationDays": 250,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Turmeric"
+   ],
+   "water": "high",
+   "soils": [
+    "red",
+    "alluvial",
+    "black"
+   ],
+   "avoidSoils": [],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0.4,
+    "ghat": 0.8,
+    "scarcity": 0.4,
+    "assured": 0.9,
+    "khandesh": 0.5,
+    "central": 0.7,
+    "eastern": 0.5
+   },
+   "market": {
+    "basePrice": 13000,
+    "weeklySigma": 0.03,
+    "seasonAmp": 0.1,
+    "peakWeek": 36,
+    "supplyBeta": 0.5,
+    "baseArrivalsT": 120
+   }
+  },
+  {
+   "id": "garlic",
+   "family": "spice",
+   "seasons": [
+    "rabi"
+   ],
+   "durationDays": 140,
+   "agmarknetCode": "",
+   "agmarknetNames": [
+    "Garlic"
+   ],
+   "water": "medium",
+   "soils": [
+    "black",
+    "alluvial"
+   ],
+   "avoidSoils": [],
+   "rainfedOkZones": [],
+   "zones": {
+    "konkan": 0,
+    "ghat": 0.8,
+    "scarcity": 0.7,
+    "assured": 0.5,
+    "khandesh": 0.6,
+    "central": 0.4,
+    "eastern": 0.2
+   },
+   "market": {
+    "basePrice": 9000,
+    "weeklySigma": 0.05,
+    "seasonAmp": 0.18,
+    "peakWeek": 42,
+    "supplyBeta": 0.7,
+    "baseArrivalsT": 90
+   }
+  }
+ ],
+ "districts": [
+  {
+   "id": "d-ahilyanagar",
+   "name": "Ahilyanagar",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 19.09,
+    "lng": 74.74
+   },
+   "zone": "Scarcity zone",
+   "zoneKey": "scarcity",
+   "annualRainMm": 560,
+   "aliases": [
+    "Ahilyanagar",
+    "Ahmednagar",
+    "Ahmadnagar"
+   ],
+   "soil": {
+    "ph": 8.1,
+    "organic_carbon_g_kg": 4.8,
+    "clay_pct": 46,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-akola",
+   "name": "Akola",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 20.71,
+    "lng": 77.0
+   },
+   "zone": "Central Vidarbha",
+   "zoneKey": "central",
+   "annualRainMm": 950,
+   "aliases": [
+    "Akola"
+   ],
+   "soil": {
+    "ph": 7.7,
+    "organic_carbon_g_kg": 5.8,
+    "clay_pct": 50,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-amravati",
+   "name": "Amravati",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 20.93,
+    "lng": 77.75
+   },
+   "zone": "Central Vidarbha",
+   "zoneKey": "central",
+   "annualRainMm": 950,
+   "aliases": [
+    "Amravati",
+    "Amarawati"
+   ],
+   "soil": {
+    "ph": 7.7,
+    "organic_carbon_g_kg": 5.8,
+    "clay_pct": 50,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-beed",
+   "name": "Beed",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 18.99,
+    "lng": 75.76
+   },
+   "zone": "Scarcity zone",
+   "zoneKey": "scarcity",
+   "annualRainMm": 560,
+   "aliases": [
+    "Beed",
+    "Bid"
+   ],
+   "soil": {
+    "ph": 8.1,
+    "organic_carbon_g_kg": 4.8,
+    "clay_pct": 46,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-bhandara",
+   "name": "Bhandara",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 21.17,
+    "lng": 79.65
+   },
+   "zone": "Eastern Vidarbha",
+   "zoneKey": "eastern",
+   "annualRainMm": 1350,
+   "aliases": [
+    "Bhandara"
+   ],
+   "soil": {
+    "ph": 6.4,
+    "organic_carbon_g_kg": 7.5,
+    "clay_pct": 32,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-buldhana",
+   "name": "Buldhana",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 20.53,
+    "lng": 76.18
+   },
+   "zone": "Central Vidarbha",
+   "zoneKey": "central",
+   "annualRainMm": 950,
+   "aliases": [
+    "Buldhana",
+    "Buldana"
+   ],
+   "soil": {
+    "ph": 7.7,
+    "organic_carbon_g_kg": 5.8,
+    "clay_pct": 50,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-chandrapur",
+   "name": "Chandrapur",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 19.95,
+    "lng": 79.3
+   },
+   "zone": "Eastern Vidarbha",
+   "zoneKey": "eastern",
+   "annualRainMm": 1350,
+   "aliases": [
+    "Chandrapur"
+   ],
+   "soil": {
+    "ph": 6.4,
+    "organic_carbon_g_kg": 7.5,
+    "clay_pct": 32,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-sambhajinagar",
+   "name": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 19.88,
+    "lng": 75.34
+   },
+   "zone": "Assured rainfall",
+   "zoneKey": "assured",
+   "annualRainMm": 780,
+   "aliases": [
+    "Chhatrapati Sambhajinagar",
+    "Aurangabad",
+    "Chattrapati Sambhajinagar"
+   ],
+   "soil": {
+    "ph": 7.9,
+    "organic_carbon_g_kg": 5.5,
+    "clay_pct": 48,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-dharashiv",
+   "name": "Dharashiv",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 18.19,
+    "lng": 76.04
+   },
+   "zone": "Scarcity zone",
+   "zoneKey": "scarcity",
+   "annualRainMm": 560,
+   "aliases": [
+    "Dharashiv",
+    "Osmanabad"
+   ],
+   "soil": {
+    "ph": 8.1,
+    "organic_carbon_g_kg": 4.8,
+    "clay_pct": 46,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-dhule",
+   "name": "Dhule",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 20.9,
+    "lng": 74.77
+   },
+   "zone": "Khandesh",
+   "zoneKey": "khandesh",
+   "annualRainMm": 700,
+   "aliases": [
+    "Dhule"
+   ],
+   "soil": {
+    "ph": 7.8,
+    "organic_carbon_g_kg": 5.2,
+    "clay_pct": 44,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-gadchiroli",
+   "name": "Gadchiroli",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 20.18,
+    "lng": 80.0
+   },
+   "zone": "Eastern Vidarbha",
+   "zoneKey": "eastern",
+   "annualRainMm": 1350,
+   "aliases": [
+    "Gadchiroli"
+   ],
+   "soil": {
+    "ph": 6.4,
+    "organic_carbon_g_kg": 7.5,
+    "clay_pct": 32,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-gondia",
+   "name": "Gondia",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 21.46,
+    "lng": 80.2
+   },
+   "zone": "Eastern Vidarbha",
+   "zoneKey": "eastern",
+   "annualRainMm": 1350,
+   "aliases": [
+    "Gondia",
+    "Gondiya"
+   ],
+   "soil": {
+    "ph": 6.4,
+    "organic_carbon_g_kg": 7.5,
+    "clay_pct": 32,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-hingoli",
+   "name": "Hingoli",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 19.72,
+    "lng": 77.15
+   },
+   "zone": "Assured rainfall",
+   "zoneKey": "assured",
+   "annualRainMm": 780,
+   "aliases": [
+    "Hingoli"
+   ],
+   "soil": {
+    "ph": 7.9,
+    "organic_carbon_g_kg": 5.5,
+    "clay_pct": 48,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-jalgaon",
+   "name": "Jalgaon",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 21.0,
+    "lng": 75.56
+   },
+   "zone": "Khandesh",
+   "zoneKey": "khandesh",
+   "annualRainMm": 700,
+   "aliases": [
+    "Jalgaon"
+   ],
+   "soil": {
+    "ph": 7.8,
+    "organic_carbon_g_kg": 5.2,
+    "clay_pct": 44,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-jalna",
+   "name": "Jalna",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 19.84,
+    "lng": 75.88
+   },
+   "zone": "Assured rainfall",
+   "zoneKey": "assured",
+   "annualRainMm": 780,
+   "aliases": [
+    "Jalna"
+   ],
+   "soil": {
+    "ph": 7.9,
+    "organic_carbon_g_kg": 5.5,
+    "clay_pct": 48,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-kolhapur",
+   "name": "Kolhapur",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 16.7,
+    "lng": 74.24
+   },
+   "zone": "Western Ghat transition",
+   "zoneKey": "ghat",
+   "annualRainMm": 850,
+   "aliases": [
+    "Kolhapur"
+   ],
+   "soil": {
+    "ph": 7.3,
+    "organic_carbon_g_kg": 7.0,
+    "clay_pct": 38,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-latur",
+   "name": "Latur",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 18.4,
+    "lng": 76.58
+   },
+   "zone": "Assured rainfall",
+   "zoneKey": "assured",
+   "annualRainMm": 780,
+   "aliases": [
+    "Latur"
+   ],
+   "soil": {
+    "ph": 7.9,
+    "organic_carbon_g_kg": 5.5,
+    "clay_pct": 48,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-mumbai-city",
+   "name": "Mumbai City",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 18.96,
+    "lng": 72.82
+   },
+   "zone": "Konkan coast",
+   "zoneKey": "konkan",
+   "annualRainMm": 2800,
+   "aliases": [
+    "Mumbai City",
+    "Mumbai"
+   ],
+   "soil": {
+    "ph": 5.8,
+    "organic_carbon_g_kg": 11.0,
+    "clay_pct": 30,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-mumbai-suburban",
+   "name": "Mumbai Suburban",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 19.13,
+    "lng": 72.88
+   },
+   "zone": "Konkan coast",
+   "zoneKey": "konkan",
+   "annualRainMm": 2800,
+   "aliases": [
+    "Mumbai Suburban"
+   ],
+   "soil": {
+    "ph": 5.8,
+    "organic_carbon_g_kg": 11.0,
+    "clay_pct": 30,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-nagpur",
+   "name": "Nagpur",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 21.15,
+    "lng": 79.09
+   },
+   "zone": "Central Vidarbha",
+   "zoneKey": "central",
+   "annualRainMm": 950,
+   "aliases": [
+    "Nagpur"
+   ],
+   "soil": {
+    "ph": 7.7,
+    "organic_carbon_g_kg": 5.8,
+    "clay_pct": 50,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-nanded",
+   "name": "Nanded",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 19.15,
+    "lng": 77.32
+   },
+   "zone": "Assured rainfall",
+   "zoneKey": "assured",
+   "annualRainMm": 780,
+   "aliases": [
+    "Nanded"
+   ],
+   "soil": {
+    "ph": 7.9,
+    "organic_carbon_g_kg": 5.5,
+    "clay_pct": 48,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-nandurbar",
+   "name": "Nandurbar",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 21.5,
+    "lng": 74.25
+   },
+   "zone": "Khandesh",
+   "zoneKey": "khandesh",
+   "annualRainMm": 700,
+   "aliases": [
+    "Nandurbar"
+   ],
+   "soil": {
+    "ph": 7.8,
+    "organic_carbon_g_kg": 5.2,
+    "clay_pct": 44,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-nashik",
+   "name": "Nashik",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 20.0,
+    "lng": 73.79
+   },
+   "zone": "Western Ghat transition",
+   "zoneKey": "ghat",
+   "annualRainMm": 850,
+   "aliases": [
+    "Nashik",
+    "Nasik"
+   ],
+   "soil": {
+    "ph": 7.3,
+    "organic_carbon_g_kg": 7.0,
+    "clay_pct": 38,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-palghar",
+   "name": "Palghar",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 19.7,
+    "lng": 72.9
+   },
+   "zone": "Konkan coast",
+   "zoneKey": "konkan",
+   "annualRainMm": 2800,
+   "aliases": [
+    "Palghar"
+   ],
+   "soil": {
+    "ph": 5.8,
+    "organic_carbon_g_kg": 11.0,
+    "clay_pct": 30,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-parbhani",
+   "name": "Parbhani",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 19.27,
+    "lng": 76.77
+   },
+   "zone": "Assured rainfall",
+   "zoneKey": "assured",
+   "annualRainMm": 780,
+   "aliases": [
+    "Parbhani"
+   ],
+   "soil": {
+    "ph": 7.9,
+    "organic_carbon_g_kg": 5.5,
+    "clay_pct": 48,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-pune",
+   "name": "Pune",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 18.52,
+    "lng": 73.86
+   },
+   "zone": "Western Ghat transition",
+   "zoneKey": "ghat",
+   "annualRainMm": 850,
+   "aliases": [
+    "Pune"
+   ],
+   "soil": {
+    "ph": 7.3,
+    "organic_carbon_g_kg": 7.0,
+    "clay_pct": 38,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-raigad",
+   "name": "Raigad",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 18.4,
+    "lng": 73.15
+   },
+   "zone": "Konkan coast",
+   "zoneKey": "konkan",
+   "annualRainMm": 2800,
+   "aliases": [
+    "Raigad",
+    "Raigarh"
+   ],
+   "soil": {
+    "ph": 5.8,
+    "organic_carbon_g_kg": 11.0,
+    "clay_pct": 30,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-ratnagiri",
+   "name": "Ratnagiri",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 17.2,
+    "lng": 73.45
+   },
+   "zone": "Konkan coast",
+   "zoneKey": "konkan",
+   "annualRainMm": 2800,
+   "aliases": [
+    "Ratnagiri"
+   ],
+   "soil": {
+    "ph": 5.8,
+    "organic_carbon_g_kg": 11.0,
+    "clay_pct": 30,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-sangli",
+   "name": "Sangli",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 16.95,
+    "lng": 74.6
+   },
+   "zone": "Scarcity zone",
+   "zoneKey": "scarcity",
+   "annualRainMm": 560,
+   "aliases": [
+    "Sangli"
+   ],
+   "soil": {
+    "ph": 8.1,
+    "organic_carbon_g_kg": 4.8,
+    "clay_pct": 46,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-satara",
+   "name": "Satara",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 17.68,
+    "lng": 74.0
+   },
+   "zone": "Western Ghat transition",
+   "zoneKey": "ghat",
+   "annualRainMm": 850,
+   "aliases": [
+    "Satara"
+   ],
+   "soil": {
+    "ph": 7.3,
+    "organic_carbon_g_kg": 7.0,
+    "clay_pct": 38,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-sindhudurg",
+   "name": "Sindhudurg",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 16.1,
+    "lng": 73.7
+   },
+   "zone": "Konkan coast",
+   "zoneKey": "konkan",
+   "annualRainMm": 2800,
+   "aliases": [
+    "Sindhudurg"
+   ],
+   "soil": {
+    "ph": 5.8,
+    "organic_carbon_g_kg": 11.0,
+    "clay_pct": 30,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-solapur",
+   "name": "Solapur",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 17.66,
+    "lng": 75.91
+   },
+   "zone": "Scarcity zone",
+   "zoneKey": "scarcity",
+   "annualRainMm": 560,
+   "aliases": [
+    "Solapur",
+    "Sholapur"
+   ],
+   "soil": {
+    "ph": 8.1,
+    "organic_carbon_g_kg": 4.8,
+    "clay_pct": 46,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-thane",
+   "name": "Thane",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 19.3,
+    "lng": 73.1
+   },
+   "zone": "Konkan coast",
+   "zoneKey": "konkan",
+   "annualRainMm": 2800,
+   "aliases": [
+    "Thane"
+   ],
+   "soil": {
+    "ph": 5.8,
+    "organic_carbon_g_kg": 11.0,
+    "clay_pct": 30,
+    "texture": "clay loam"
+   }
+  },
+  {
+   "id": "d-wardha",
+   "name": "Wardha",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 20.75,
+    "lng": 78.6
+   },
+   "zone": "Central Vidarbha",
+   "zoneKey": "central",
+   "annualRainMm": 950,
+   "aliases": [
+    "Wardha"
+   ],
+   "soil": {
+    "ph": 7.7,
+    "organic_carbon_g_kg": 5.8,
+    "clay_pct": 50,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-washim",
+   "name": "Washim",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 20.11,
+    "lng": 77.13
+   },
+   "zone": "Central Vidarbha",
+   "zoneKey": "central",
+   "annualRainMm": 950,
+   "aliases": [
+    "Washim"
+   ],
+   "soil": {
+    "ph": 7.7,
+    "organic_carbon_g_kg": 5.8,
+    "clay_pct": 50,
+    "texture": "clay"
+   }
+  },
+  {
+   "id": "d-yavatmal",
+   "name": "Yavatmal",
+   "state": "Maharashtra",
+   "centroid": {
+    "lat": 20.39,
+    "lng": 78.12
+   },
+   "zone": "Central Vidarbha",
+   "zoneKey": "central",
+   "annualRainMm": 950,
+   "aliases": [
+    "Yavatmal",
+    "Yeotmal"
+   ],
+   "soil": {
+    "ph": 7.7,
+    "organic_carbon_g_kg": 5.8,
+    "clay_pct": 50,
+    "texture": "clay"
+   }
+  }
+ ],
+ "mandis": [
+  {
+   "id": "m-ahilyanagar",
+   "name": "Ahilyanagar",
+   "districtId": "d-ahilyanagar",
+   "location": {
+    "lat": 19.09,
+    "lng": 74.74
+   },
+   "aliases": [
+    "Ahilyanagar",
+    "Ahmednagar",
+    "Ahmadnagar"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-akola",
+   "name": "Akola",
+   "districtId": "d-akola",
+   "location": {
+    "lat": 20.71,
+    "lng": 77.0
+   },
+   "aliases": [
+    "Akola"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "jowar",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-amravati",
+   "name": "Amravati",
+   "districtId": "d-amravati",
+   "location": {
+    "lat": 20.93,
+    "lng": 77.75
+   },
+   "aliases": [
+    "Amravati",
+    "Amarawati"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "jowar",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-beed",
+   "name": "Beed",
+   "districtId": "d-beed",
+   "location": {
+    "lat": 18.99,
+    "lng": 75.76
+   },
+   "aliases": [
+    "Beed",
+    "Bid"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-bhandara",
+   "name": "Bhandara",
+   "districtId": "d-bhandara",
+   "location": {
+    "lat": 21.17,
+    "lng": 79.65
+   },
+   "aliases": [
+    "Bhandara"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "cotton",
+    "tomato",
+    "chilli",
+    "turmeric"
+   ]
+  },
+  {
+   "id": "m-buldhana",
+   "name": "Buldhana",
+   "districtId": "d-buldhana",
+   "location": {
+    "lat": 20.53,
+    "lng": 76.18
+   },
+   "aliases": [
+    "Buldhana",
+    "Buldana"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "jowar",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-chandrapur",
+   "name": "Chandrapur",
+   "districtId": "d-chandrapur",
+   "location": {
+    "lat": 19.95,
+    "lng": 79.3
+   },
+   "aliases": [
+    "Chandrapur"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "cotton",
+    "tomato",
+    "chilli",
+    "turmeric"
+   ]
+  },
+  {
+   "id": "m-sambhajinagar",
+   "name": "Chhatrapati Sambhajinagar",
+   "districtId": "d-sambhajinagar",
+   "location": {
+    "lat": 19.88,
+    "lng": 75.34
+   },
+   "aliases": [
+    "Chhatrapati Sambhajinagar",
+    "Aurangabad",
+    "Chattrapati Sambhajinagar"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-dharashiv",
+   "name": "Dharashiv",
+   "districtId": "d-dharashiv",
+   "location": {
+    "lat": 18.19,
+    "lng": 76.04
+   },
+   "aliases": [
+    "Dharashiv",
+    "Osmanabad"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-dhule",
+   "name": "Dhule",
+   "districtId": "d-dhule",
+   "location": {
+    "lat": 20.9,
+    "lng": 74.77
+   },
+   "aliases": [
+    "Dhule"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-gadchiroli",
+   "name": "Gadchiroli",
+   "districtId": "d-gadchiroli",
+   "location": {
+    "lat": 20.18,
+    "lng": 80.0
+   },
+   "aliases": [
+    "Gadchiroli"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "cotton",
+    "tomato",
+    "chilli",
+    "turmeric"
+   ]
+  },
+  {
+   "id": "m-gondia",
+   "name": "Gondia",
+   "districtId": "d-gondia",
+   "location": {
+    "lat": 21.46,
+    "lng": 80.2
+   },
+   "aliases": [
+    "Gondia",
+    "Gondiya"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "cotton",
+    "tomato",
+    "chilli",
+    "turmeric"
+   ]
+  },
+  {
+   "id": "m-hingoli",
+   "name": "Hingoli",
+   "districtId": "d-hingoli",
+   "location": {
+    "lat": 19.72,
+    "lng": 77.15
+   },
+   "aliases": [
+    "Hingoli"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-jalgaon",
+   "name": "Jalgaon",
+   "districtId": "d-jalgaon",
+   "location": {
+    "lat": 21.0,
+    "lng": 75.56
+   },
+   "aliases": [
+    "Jalgaon"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-jalna",
+   "name": "Jalna",
+   "districtId": "d-jalna",
+   "location": {
+    "lat": 19.84,
+    "lng": 75.88
+   },
+   "aliases": [
+    "Jalna"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-kolhapur",
+   "name": "Kolhapur",
+   "districtId": "d-kolhapur",
+   "location": {
+    "lat": 16.7,
+    "lng": 74.24
+   },
+   "aliases": [
+    "Kolhapur"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-latur",
+   "name": "Latur",
+   "districtId": "d-latur",
+   "location": {
+    "lat": 18.4,
+    "lng": 76.58
+   },
+   "aliases": [
+    "Latur"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-nagpur",
+   "name": "Nagpur",
+   "districtId": "d-nagpur",
+   "location": {
+    "lat": 21.15,
+    "lng": 79.09
+   },
+   "aliases": [
+    "Nagpur"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "jowar",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-nanded",
+   "name": "Nanded",
+   "districtId": "d-nanded",
+   "location": {
+    "lat": 19.15,
+    "lng": 77.32
+   },
+   "aliases": [
+    "Nanded"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-nandurbar",
+   "name": "Nandurbar",
+   "districtId": "d-nandurbar",
+   "location": {
+    "lat": 21.5,
+    "lng": 74.25
+   },
+   "aliases": [
+    "Nandurbar"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-lasalgaon",
+   "name": "Lasalgaon",
+   "districtId": "d-nashik",
+   "location": {
+    "lat": 20.0,
+    "lng": 73.79
+   },
+   "aliases": [
+    "Lasalgaon"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-palghar",
+   "name": "Palghar",
+   "districtId": "d-palghar",
+   "location": {
+    "lat": 19.7,
+    "lng": 72.9
+   },
+   "aliases": [
+    "Palghar"
+   ],
+   "crops": [
+    "rice",
+    "tomato",
+    "chilli",
+    "turmeric"
+   ]
+  },
+  {
+   "id": "m-parbhani",
+   "name": "Parbhani",
+   "districtId": "d-parbhani",
+   "location": {
+    "lat": 19.27,
+    "lng": 76.77
+   },
+   "aliases": [
+    "Parbhani"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-pune",
+   "name": "Pune (Gultekdi)",
+   "districtId": "d-pune",
+   "location": {
+    "lat": 18.52,
+    "lng": 73.86
+   },
+   "aliases": [
+    "Pune",
+    "Pune(Gultekdi)"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-raigad",
+   "name": "Raigad",
+   "districtId": "d-raigad",
+   "location": {
+    "lat": 18.4,
+    "lng": 73.15
+   },
+   "aliases": [
+    "Raigad",
+    "Raigarh"
+   ],
+   "crops": [
+    "rice",
+    "tomato",
+    "chilli",
+    "turmeric"
+   ]
+  },
+  {
+   "id": "m-ratnagiri",
+   "name": "Ratnagiri",
+   "districtId": "d-ratnagiri",
+   "location": {
+    "lat": 17.2,
+    "lng": 73.45
+   },
+   "aliases": [
+    "Ratnagiri"
+   ],
+   "crops": [
+    "rice",
+    "tomato",
+    "chilli",
+    "turmeric"
+   ]
+  },
+  {
+   "id": "m-sangli",
+   "name": "Sangli",
+   "districtId": "d-sangli",
+   "location": {
+    "lat": 16.95,
+    "lng": 74.6
+   },
+   "aliases": [
+    "Sangli"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-satara",
+   "name": "Satara",
+   "districtId": "d-satara",
+   "location": {
+    "lat": 17.68,
+    "lng": 74.0
+   },
+   "aliases": [
+    "Satara"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-sindhudurg",
+   "name": "Sindhudurg",
+   "districtId": "d-sindhudurg",
+   "location": {
+    "lat": 16.1,
+    "lng": 73.7
+   },
+   "aliases": [
+    "Sindhudurg"
+   ],
+   "crops": [
+    "rice",
+    "tomato",
+    "chilli",
+    "turmeric"
+   ]
+  },
+  {
+   "id": "m-solapur",
+   "name": "Solapur",
+   "districtId": "d-solapur",
+   "location": {
+    "lat": 17.66,
+    "lng": 75.91
+   },
+   "aliases": [
+    "Solapur",
+    "Sholapur"
+   ],
+   "crops": [
+    "wheat",
+    "jowar",
+    "bajra",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "sugarcane",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-thane",
+   "name": "Thane",
+   "districtId": "d-thane",
+   "location": {
+    "lat": 19.3,
+    "lng": 73.1
+   },
+   "aliases": [
+    "Thane"
+   ],
+   "crops": [
+    "rice",
+    "tomato",
+    "chilli",
+    "turmeric"
+   ]
+  },
+  {
+   "id": "m-wardha",
+   "name": "Wardha",
+   "districtId": "d-wardha",
+   "location": {
+    "lat": 20.75,
+    "lng": 78.6
+   },
+   "aliases": [
+    "Wardha"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "jowar",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-washim",
+   "name": "Washim",
+   "districtId": "d-washim",
+   "location": {
+    "lat": 20.11,
+    "lng": 77.13
+   },
+   "aliases": [
+    "Washim"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "jowar",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  },
+  {
+   "id": "m-yavatmal",
+   "name": "Yavatmal",
+   "districtId": "d-yavatmal",
+   "location": {
+    "lat": 20.39,
+    "lng": 78.12
+   },
+   "aliases": [
+    "Yavatmal",
+    "Yeotmal"
+   ],
+   "crops": [
+    "rice",
+    "wheat",
+    "jowar",
+    "maize",
+    "gram",
+    "tur",
+    "moong",
+    "urad",
+    "soybean",
+    "groundnut",
+    "sunflower",
+    "cotton",
+    "onion",
+    "tomato",
+    "potato",
+    "chilli",
+    "turmeric",
+    "garlic"
+   ]
+  }
+ ]
+}

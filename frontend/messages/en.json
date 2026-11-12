@@ -1,0 +1,677 @@
+{
+  "common": {
+    "loading": "Loading…",
+    "retry": "Try again",
+    "cancel": "Cancel",
+    "back": "Back",
+    "optional": "optional",
+    "logout": "Log out",
+    "language": "Language",
+    "mainNav": "Main navigation",
+    "notifications": "Notifications",
+    "noNotifications": "No notifications yet.",
+    "disclaimer": "Advisory only. Prices and demand can change.",
+    "modelVersion": "Model {version}",
+    "asOf": "As of {date}",
+    "units": {
+      "q": "q",
+      "t": "t",
+      "km": "km"
+    },
+    "location": {
+      "hint": "Tap the map to move the pin, or use your phone's GPS.",
+      "gps": "Use my location",
+      "gpsError": "Could not get your location. Tap the map instead."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "advice": "Advice",
+    "listings": "Listings",
+    "deals": "Deals",
+    "market": "Prices",
+    "browse": "Browse",
+    "post": "Post need",
+    "overview": "Overview",
+    "verifications": "Verify",
+    "system": "System"
+  },
+  "crops": {
+    "rice": "Rice (paddy)",
+    "wheat": "Wheat",
+    "jowar": "Jowar (sorghum)",
+    "bajra": "Bajra (pearl millet)",
+    "maize": "Maize",
+    "gram": "Gram (chana)",
+    "tur": "Tur (pigeon pea)",
+    "moong": "Moong (green gram)",
+    "urad": "Urad (black gram)",
+    "soybean": "Soybean",
+    "groundnut": "Groundnut",
+    "sunflower": "Sunflower",
+    "cotton": "Cotton",
+    "sugarcane": "Sugarcane",
+    "onion": "Onion",
+    "tomato": "Tomato",
+    "potato": "Potato",
+    "chilli": "Chilli (dry red)",
+    "turmeric": "Turmeric",
+    "garlic": "Garlic"
+  },
+  "districts": {
+    "d-ahilyanagar": "Ahilyanagar",
+    "d-akola": "Akola",
+    "d-amravati": "Amravati",
+    "d-beed": "Beed",
+    "d-bhandara": "Bhandara",
+    "d-buldhana": "Buldhana",
+    "d-chandrapur": "Chandrapur",
+    "d-sambhajinagar": "Chhatrapati Sambhajinagar",
+    "d-dharashiv": "Dharashiv",
+    "d-dhule": "Dhule",
+    "d-gadchiroli": "Gadchiroli",
+    "d-gondia": "Gondia",
+    "d-hingoli": "Hingoli",
+    "d-jalgaon": "Jalgaon",
+    "d-jalna": "Jalna",
+    "d-kolhapur": "Kolhapur",
+    "d-latur": "Latur",
+    "d-mumbai-city": "Mumbai City",
+    "d-mumbai-suburban": "Mumbai Suburban",
+    "d-nagpur": "Nagpur",
+    "d-nanded": "Nanded",
+    "d-nandurbar": "Nandurbar",
+    "d-nashik": "Nashik",
+    "d-palghar": "Palghar",
+    "d-parbhani": "Parbhani",
+    "d-pune": "Pune",
+    "d-raigad": "Raigad",
+    "d-ratnagiri": "Ratnagiri",
+    "d-sangli": "Sangli",
+    "d-satara": "Satara",
+    "d-sindhudurg": "Sindhudurg",
+    "d-solapur": "Solapur",
+    "d-thane": "Thane",
+    "d-wardha": "Wardha",
+    "d-washim": "Washim",
+    "d-yavatmal": "Yavatmal"
+  },
+  "seasons": {
+    "kharif": "Kharif (Jun–Oct)",
+    "rabi": "Rabi (Oct–Mar)",
+    "zaid": "Zaid / summer (Mar–Jun)"
+  },
+  "irrigation": {
+    "rainfed": "Rainfed only",
+    "well": "Open well",
+    "borewell": "Borewell",
+    "canal": "Canal",
+    "drip": "Drip"
+  },
+  "soil": {
+    "black": "Black (regur)",
+    "red": "Red",
+    "alluvial": "Alluvial",
+    "laterite": "Laterite",
+    "unknown": "Don't know"
+  },
+  "companyType": {
+    "processor": "Food processor",
+    "feed": "Feed manufacturer",
+    "exporter": "Exporter",
+    "retailer": "Retailer",
+    "fpo": "FPO",
+    "trader": "Trader / aggregator",
+    "institution": "Institution"
+  },
+  "dealStatus": {
+    "enquiry": "Enquiry",
+    "offer_sent": "Offer sent",
+    "negotiation": "Negotiating",
+    "accepted": "Accepted",
+    "rejected": "Rejected",
+    "cancelled": "Cancelled",
+    "completed": "Completed"
+  },
+  "listingStatus": {
+    "active": "Active",
+    "paused": "Paused",
+    "sold": "Sold",
+    "expired": "Expired"
+  },
+  "insight": {
+    "demand": "Demand",
+    "price": "Price",
+    "level": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "trend": {
+      "falling": "Falling",
+      "stable": "Stable",
+      "rising": "Rising"
+    },
+    "price_dir": {
+      "down": "Down",
+      "stable": "Stable",
+      "up": "Up"
+    },
+    "band": {
+      "low": "low",
+      "medium": "medium",
+      "high": "high"
+    },
+    "confidence": "{pct} confidence ({band})",
+    "trendLabel": "Trend",
+    "confidenceLabel": "Confidence"
+  },
+  "landing": {
+    "login": "Log in",
+    "title": "Grow what will sell. Sell to whoever needs it.",
+    "subtitle": "AgriDirect looks at mandi arrivals, prices, rainfall and soil in your district and suggests which crops are likely to fetch a fair price this season. When your crop is ready, companies looking for it can find you and make an offer directly.",
+    "ctaFarmer": "Register as a farmer",
+    "ctaCompany": "Register as a buyer",
+    "priceTitle": "Mandi prices this week",
+    "perQuintal": "₹ per quintal",
+    "colCrop": "Crop",
+    "colMandi": "Mandi",
+    "colPrice": "Modal price",
+    "colChange": "Change in 4 weeks",
+    "priceNote": "Modal price. Arrow shows the change over the last four weeks.",
+    "howTitle": "How it works",
+    "steps": {
+      "advice": {
+        "title": "Check before you sow",
+        "body": "Enter your district, land and water source. You get three to five crops ranked for this season, with the reason for each."
+      },
+      "list": {
+        "title": "List your harvest early",
+        "body": "Add the crop, quantity and the date it will be ready. Buyers within 200 km can see it straight away."
+      },
+      "deal": {
+        "title": "Agree a price directly",
+        "body": "Buyers send offers. You can accept, reject or ask for a better price, and every step is recorded."
+      }
+    },
+    "farmers": {
+      "title": "For farmers",
+      "a": "A clear crop suggestion before sowing",
+      "b": "List your produce weeks before harvest",
+      "c": "Offers from verified buyers, in Marathi, Hindi or English"
+    },
+    "buyers": {
+      "title": "For companies",
+      "a": "Post your requirement once",
+      "b": "See verified supply near your unit, with ready dates",
+      "c": "Compare listings and send offers in a few minutes"
+    },
+    "footer": "AgriDirect · Crop advice is indicative. Check with your local agriculture officer before sowing.",
+    "privacy": "Privacy notice",
+    "badge": "Pilot · Pune division · 5 crops",
+    "live": "Updated weekly"
+  },
+  "login": {
+    "title": "Log in",
+    "subtitle": "New here? The same steps create your account.",
+    "phoneLabel": "Mobile number",
+    "phoneHint": "10-digit Indian mobile number",
+    "sendOtp": "Send OTP",
+    "sentTo": "We sent a 6-digit code to {phone}.",
+    "otpLabel": "6-digit code",
+    "verify": "Verify and continue",
+    "changeNumber": "Change number",
+    "resend": "Resend code",
+    "terms": "By continuing you agree to how we use your data, as explained in the",
+    "privacy": "privacy notice",
+    "devOtp": "Demo mode, no SMS is sent. Your code is"
+  },
+  "onboarding": {
+    "title": "Create your account",
+    "subtitle": "Tell us who you are. You can change these details later.",
+    "changeRole": "Change",
+    "roles": {
+      "farmer": {
+        "title": "I am a farmer",
+        "body": "Get crop advice and sell directly to companies."
+      },
+      "company": {
+        "title": "I represent a company",
+        "body": "Post requirements and buy from nearby farmers."
+      }
+    },
+    "name": "Your name",
+    "village": "Village",
+    "district": "District",
+    "stateFixed": "Maharashtra",
+    "farmLocation": "Farm location",
+    "landArea": "Land area (acres)",
+    "irrigation": "Irrigation",
+    "soilType": "Soil type",
+    "language": "Preferred language",
+    "companyName": "Company name",
+    "companyType": "Type of business",
+    "gstin": "GSTIN",
+    "gstinHint": "15 characters, e.g. 27AAPFU0939F1ZV",
+    "contactPerson": "Contact person",
+    "email": "Email",
+    "optional": "optional",
+    "unitDistrict": "District of your unit",
+    "unitLocation": "Unit / delivery location",
+    "operatingDistricts": "Districts you buy from",
+    "companyPendingNote": "An admin checks your GSTIN before you can post requirements or send offers. You can browse produce meanwhile.",
+    "submit": "Create account",
+    "submitCompany": "Submit for verification",
+    "consent": {
+      "title": "Your consent",
+      "summary": "We use your phone number to log you in and for deal communication, and your location for advice and matching. Nothing else.",
+      "readNotice": "Read the privacy notice",
+      "account": "I agree to AgriDirect using my data to run my account and the marketplace. (Required)",
+      "marketing": "Send me occasional tips and updates by SMS/WhatsApp. (Optional)",
+      "age": "I confirm I am 18 years or older. (Required)"
+    }
+  },
+  "farmer": {
+    "dashboard": {
+      "greeting": "Namaste, {name}",
+      "adviceTitle": "What should I grow?",
+      "adviceBody": "Crop advice for your land this season",
+      "listTitle": "List my produce",
+      "listBody": "Let buyers find you before harvest",
+      "waitingTitle": "Waiting for your reply",
+      "waitingEmpty": "No offers waiting. New offers appear here.",
+      "listingsTitle": "My active listings",
+      "listingsEmpty": "You have no active listings.",
+      "viewAll": "View all"
+    }
+  },
+  "advice": {
+    "title": "Crop advice",
+    "subtitle": "Ranked crops for your land, with demand and price outlook.",
+    "district": "District",
+    "landArea": "Land area (acres)",
+    "season": "Season",
+    "irrigation": "Irrigation",
+    "soil": "Soil type",
+    "submit": "Get advice",
+    "resultsTitle": "{count, plural, one {# suggested crop} other {# suggested crops}}",
+    "noResults": "No crops in our catalogue fit this season yet.",
+    "rank": "Rank {rank}",
+    "suitability": "Suits your land: {pct}",
+    "horizon": "next {weeks} weeks",
+    "why": "Why this suggestion?",
+    "lowConfidence": "Low confidence: not enough local data, using state-level averages.",
+    "listThis": "List this crop",
+    "explain": {
+      "arrivals_down": "Mandi arrivals are {pct}% below normal for this time of year, so buyers are short of supply.",
+      "arrivals_up": "Mandi arrivals are {pct}% above normal, a glut is likely and prices may fall.",
+      "price_up": "Prices are expected to rise about {pct}% over the next weeks.",
+      "price_down": "Prices are expected to fall about {pct}% over the next weeks.",
+      "buyers_need": "{buyers, plural, one {# verified buyer needs} other {# verified buyers need}} {tonnes} t within {km} km.",
+      "irrigation_risk": "Needs regular water; risky on rainfed land.",
+      "soil_good": "Grows well in black soil.",
+      "steady": "Demand and prices look steady.",
+      "fallback": "Based on state-level averages because local data is limited.",
+      "rain_low": "Rainfall over the last 8 weeks is {pct}% below normal, which can tighten supply.",
+      "rain_high": "Rainfall over the last 8 weeks is {pct}% above normal, which usually means more supply later.",
+      "zone_good": "This crop is widely grown in your region."
+    }
+  },
+  "listings": {
+    "title": "My listings",
+    "subtitle": "Produce you have ready or expect to harvest.",
+    "new": "New listing",
+    "empty": "No listings yet",
+    "emptyHint": "Create a listing so companies can find your produce.",
+    "remainingOf": "{remaining} left of {total}",
+    "readyOn": "Ready {date}",
+    "form": {
+      "title": "New listing",
+      "crop": "Crop",
+      "choose": "Choose crop",
+      "variety": "Variety",
+      "quantity": "Quantity",
+      "unit": "Unit",
+      "quintal": "Quintal (100 kg)",
+      "tonne": "Tonne (1000 kg)",
+      "readyDate": "Ready date",
+      "expectedPrice": "Expected price, ₹ per quintal",
+      "grade": "Quality grade",
+      "gradeUnknown": "Not graded",
+      "moisture": "Moisture %",
+      "district": "District",
+      "location": "Pickup location",
+      "photos": "Photos",
+      "photosHint": "Up to 3 photos (JPG, PNG, WebP; 5 MB each). Location data is removed from photos.",
+      "addPhoto": "Add",
+      "removePhoto": "Remove photo",
+      "submit": "Publish listing"
+    },
+    "detail": {
+      "back": "My listings",
+      "created": "Your listing is live. Companies can now find it.",
+      "pause": "Pause listing",
+      "resume": "Make active again",
+      "insightTitle": "Market outlook for this crop",
+      "nearbyDemand": "{qty} needed by {buyers, plural, one {# company} other {# companies}} within {km} km",
+      "noNearbyDemand": "No open company requirements within {km} km yet.",
+      "matchesTitle": "Best-matched buyers",
+      "matchesHint": "Companies whose requirements fit this listing. They can send you an offer.",
+      "noMatches": "No matching company requirements yet. We'll notify you when one appears.",
+      "pausedNoMatches": "Matching is off while the listing is not active.",
+      "dealsTitle": "Offers on this listing",
+      "noDeals": "No offers yet."
+    }
+  },
+  "matches": {
+    "score": "match",
+    "verified": "Verified company",
+    "needs": "Needs {qty} {crop} by {date}",
+    "howScored": "How is this scored?",
+    "makeOffer": "Make offer",
+    "verifyToOffer": "Offers open after verification",
+    "factors": {
+      "crop": "Crop",
+      "qty": "Quantity",
+      "distance": "Distance",
+      "date": "Ready in time",
+      "quality": "Quality"
+    }
+  },
+  "deals": {
+    "yourTurn": "Your turn",
+    "inbox": {
+      "title": "Offers and deals",
+      "subtitle": "Every offer, counter and decision with its full history.",
+      "empty": "No deals yet.",
+      "waiting": "Waiting for you",
+      "open": "Waiting for the other side",
+      "closed": "Closed"
+    },
+    "detail": {
+      "back": "Back",
+      "yourTurn": "Your turn",
+      "quantity": "Quantity",
+      "price": "Price",
+      "value": "Deal value",
+      "listingLeft": "Left on listing",
+      "parties": "Parties",
+      "phoneHidden": "Phone numbers are shown to both sides once the deal is accepted.",
+      "yourMove": "Your move",
+      "actions": "Actions",
+      "waitingOther": "Waiting for the other side to respond.",
+      "reviewTitle": "Rate this deal",
+      "history": "History",
+      "farmer": "Farmer",
+      "buyer": "Buyer"
+    },
+    "actions": {
+      "accept": "Accept {price}",
+      "sendOffer": "Send offer",
+      "counter": "Counter with my price",
+      "reject": "Reject",
+      "cancel": "Cancel deal",
+      "complete": "Mark as completed",
+      "pricePerQuintal": "Your price, ₹ per quintal",
+      "note": "Message",
+      "reasonRequired": "Reason for cancelling (required)",
+      "paymentWarning": "Agree payment terms before handing over produce. Never release goods before the agreed payment.",
+      "confirm": {
+        "counter": "Send counter-offer",
+        "send_offer": "Send offer",
+        "reject": "Reject offer",
+        "cancel": "Cancel deal"
+      }
+    },
+    "timeline": {
+      "you": "You",
+      "openedEnquiry": "sent an enquiry for {qty}",
+      "openedOffer": "offered {price} for {qty}",
+      "offered": "offered {price}",
+      "countered": "countered at {price}",
+      "accepted": "accepted the deal",
+      "rejected": "rejected the offer",
+      "cancelled": "cancelled the deal",
+      "completed": "marked the deal completed",
+      "enquiry": "sent an enquiry",
+      "offer_sent": "sent an offer",
+      "negotiation": "countered"
+    },
+    "review": {
+      "prompt": "How was this deal?",
+      "stars": "{n, plural, one {# star} other {# stars}}",
+      "comment": "Comment (optional)",
+      "submit": "Submit rating",
+      "yourRating": "Your rating:"
+    }
+  },
+  "market": {
+    "title": "Market prices",
+    "subtitle": "Weekly modal price and arrivals by crop and mandi.",
+    "crop": "Crop",
+    "mandi": "Mandi",
+    "latestModal": "Latest modal price",
+    "weekOf": "Week of {date}",
+    "change4w": "Change in 4 weeks",
+    "arrivalsLatest": "Arrivals this week",
+    "chartTitle": "Price and arrivals, last 52 weeks",
+    "chartLabel": "Line chart of weekly modal price with bars for arrivals",
+    "modal": "Modal price (₹/q)",
+    "arrivals": "Arrivals (t)",
+    "outlookTitle": "Demand outlook for this district"
+  },
+  "company": {
+    "verification": {
+      "verified": "Verified",
+      "pending": "Verification pending",
+      "rejected": "Not verified",
+      "pendingBody": "An admin is checking your GSTIN. Until then you can browse produce, but cannot post requirements or send offers.",
+      "rejectedBody": "Verification was not approved: {reason}. Please contact support."
+    },
+    "dashboard": {
+      "post": "Post a requirement",
+      "browse": "Browse produce",
+      "dealsTitle": "My deals",
+      "dealsEmpty": "No deals yet. Send an offer from a match or from Browse.",
+      "requirementsTitle": "My requirements",
+      "requirementsEmpty": "No requirements yet.",
+      "by": "by {date}",
+      "matchesTitle": "{count, plural, =0 {No suggested listings} one {# suggested listing} other {# suggested listings}}",
+      "noMatches": "No active listings fit this requirement yet."
+    }
+  },
+  "requirement": {
+    "title": "Post a requirement",
+    "subtitle": "Tell farmers what you need. We match you with nearby listings.",
+    "form": {
+      "crop": "Crop",
+      "choose": "Choose crop",
+      "quantity": "Quantity",
+      "unit": "Unit",
+      "requiredBy": "Required by",
+      "priceMin": "Price from, ₹/q",
+      "priceMax": "Price to, ₹/q",
+      "minGrade": "Minimum grade",
+      "any": "Any",
+      "maxMoisture": "Max moisture %",
+      "district": "Delivery district",
+      "deliveryLocation": "Delivery location",
+      "notes": "Quality notes",
+      "submit": "Post requirement"
+    }
+  },
+  "browse": {
+    "title": "Browse produce",
+    "subtitle": "Active listings from farmers, sorted by fit with your requirements.",
+    "crop": "Crop",
+    "district": "District",
+    "all": "All",
+    "minQty": "Min. quantity (t)",
+    "readyBefore": "Ready before",
+    "radius": "Distance",
+    "withinKm": "Within {km} km",
+    "count": "{count, plural, one {# listing} other {# listings}}",
+    "sorted": "best match first",
+    "empty": "No listings match these filters."
+  },
+  "offer": {
+    "available": "{qty} available on this listing",
+    "quantity": "Quantity",
+    "unit": "Unit",
+    "price": "Your price, ₹ per quintal",
+    "priceHint": "Leave empty to send an enquiry without a price.",
+    "note": "Message to farmer",
+    "sendOffer": "Send offer",
+    "sendEnquiry": "Send enquiry"
+  },
+  "notifications": {
+    "offer_received": "{company} sent an offer for your {crop}",
+    "enquiry_received": "{company} sent an enquiry for your {crop}",
+    "deal_countered": "New counter-offer on the {crop} deal",
+    "deal_accepted": "The {crop} deal was accepted",
+    "deal_rejected": "The {crop} offer was rejected",
+    "deal_cancelled": "The {crop} deal was cancelled",
+    "deal_completed": "The {crop} deal was marked completed",
+    "company_verified": "Your company is verified. You can now post requirements.",
+    "company_rejected": "Company verification was not approved: {reason}"
+  },
+  "admin": {
+    "overview": {
+      "title": "Admin overview",
+      "subtitle": "Users, listings, deals and reports at a glance.",
+      "farmers": "Farmers",
+      "companies": "Verified companies",
+      "pending": "Awaiting verification",
+      "review": "Review now",
+      "listings": "Active listings",
+      "requirements": "Open requirements",
+      "dealsTitle": "Deal monitor",
+      "flagsTitle": "Reported listings ({count})"
+    },
+    "flags": {
+      "empty": "No open reports.",
+      "reason": "Reason",
+      "dismiss": "Dismiss",
+      "hide": "Hide listing",
+      "block": "Block user"
+    },
+    "verifications": {
+      "title": "Company verifications",
+      "subtitle": "Oldest first. Rejections need a reason; every decision is logged.",
+      "empty": "No companies waiting for verification.",
+      "submitted": "Submitted {date}",
+      "gstin": "GSTIN",
+      "type": "Type",
+      "contact": "Contact",
+      "districts": "Buys from",
+      "documents": "Documents",
+      "noDocuments": "No documents uploaded.",
+      "gstinChecked": "GSTIN format and checksum passed automatic checks.",
+      "approve": "Approve",
+      "reject": "Reject",
+      "confirmReject": "Confirm rejection",
+      "reason": "Reason for rejection (shown to the company)",
+      "back": "Back"
+    },
+    "system": {
+      "title": "Data and model health",
+      "subtitle": "Daily ingestion runs at 02:00 IST. Failed runs are shown in red.",
+      "pipelinesTitle": "Data pipelines",
+      "sources": {
+        "mandi": "Mandi prices",
+        "weather": "Weather",
+        "soil": "Soil"
+      },
+      "status": {
+        "ok": "OK",
+        "failed": "Failed",
+        "running": "Running"
+      },
+      "lastRun": "Last run {at}",
+      "records": "{n} records",
+      "retry": "Run again",
+      "modelTitle": "Model {version}",
+      "modelHint": "Hold-out results against the seasonal-naive baseline. Lower MAPE and higher F1 are better.",
+      "crop": "Crop",
+      "mape": "Price MAPE",
+      "mapeBaseline": "Baseline MAPE",
+      "f1": "Demand F1",
+      "f1Baseline": "Baseline F1",
+      "auditTitle": "Audit log (latest)"
+    }
+  },
+  "privacy": {
+    "title": "Privacy notice",
+    "what": {
+      "title": "What we collect",
+      "body": "Your mobile number, name, village and district, farm or unit location, land and crop details, and for companies the GSTIN and contact person. We do not collect Aadhaar, bank details or date of birth."
+    },
+    "why": {
+      "title": "Why",
+      "body": "Your phone number is used to log in and for deal communication. Your location is used only for crop advice and to match you with nearby buyers or sellers."
+    },
+    "shared": {
+      "title": "Who sees it",
+      "body": "Companies see your village and an approximate distance, never your exact location. Phone numbers are shown to the other party only after a deal is accepted."
+    },
+    "retention": {
+      "title": "How long we keep it",
+      "body": "Inactive accounts are notified after 24 months and then deleted. Deleted accounts are purged within 30 days; deal records are kept only in anonymised form."
+    },
+    "rights": {
+      "title": "Your rights",
+      "body": "You can view, correct or delete your data, withdraw consent at any time from Settings, and nominate someone to act for you."
+    },
+    "grievance": {
+      "title": "Grievance contact",
+      "body": "Contact details of the grievance officer will be published here before launch."
+    }
+  },
+  "errors": {
+    "unknown": "Something went wrong. Please try again.",
+    "unauthenticated": "Please log in again.",
+    "blocked": "This account has been blocked. Contact support.",
+    "forbidden": "You are not allowed to do this.",
+    "not_found": "Not found, or you do not have access.",
+    "company_not_verified": "Your company must be verified first.",
+    "phone_invalid": "Enter a valid 10-digit Indian mobile number starting with 6–9.",
+    "otp_invalid": "Enter the 6-digit code.",
+    "otp_expired": "Code expired. Please request a new one.",
+    "otp_rate_limited": "Too many codes requested. Try again in 15 minutes.",
+    "consent_required": "Please accept the required consents.",
+    "name_required": "Please enter a name.",
+    "village_required": "Please enter your village.",
+    "phone_taken": "This number is already registered.",
+    "land_area_invalid": "Enter land area in acres (more than 0).",
+    "gstin_format": "GSTIN must be 15 characters, like 27AAPFU0939F1ZV.",
+    "gstin_checksum": "This GSTIN's check digit is wrong. Please check for typos.",
+    "gstin_taken": "This GSTIN is already registered.",
+    "district_required": "Choose a district.",
+    "crop_required": "Choose a crop.",
+    "qty_positive": "Quantity must be more than 0.",
+    "qty_max": "Maximum is 10,000 tonnes per listing.",
+    "qty_invalid": "Enter a valid quantity.",
+    "qty_exceeds_remaining": "That is more than is left on this listing.",
+    "date_required": "Choose a date.",
+    "date_past": "Date cannot be in the past.",
+    "price_required": "Enter a price in whole rupees per quintal.",
+    "price_integer": "Price must be a whole number of rupees.",
+    "price_range": "Minimum price must not be more than maximum price.",
+    "photo_count": "You can add up to 3 photos.",
+    "photo_type": "Photos must be JPG, PNG or WebP.",
+    "photo_size": "Each photo must be 5 MB or smaller.",
+    "listing_limit": "Daily listing limit reached. Try again tomorrow.",
+    "listing_closed": "This listing is closed.",
+    "listing_not_active": "This listing is not active.",
+    "reason_required": "Please give a reason.",
+    "deal_already_open": "You already have an open deal on this listing.",
+    "not_your_turn": "Waiting for the other side to respond.",
+    "transition_not_allowed": "This action is no longer possible. Refresh to see the latest status.",
+    "rating_invalid": "Choose 1 to 5 stars.",
+    "review_after_completed": "You can rate a deal after it is completed.",
+    "already_reviewed": "You have already rated this deal.",
+    "already_decided": "This company has already been reviewed.",
+    "rate_limited": "Too many requests. Please wait a minute and try again.",
+    "invalid_request": "Some details are missing or not valid. Please check the form."
+  }
+}
