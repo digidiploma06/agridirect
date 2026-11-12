@@ -8,7 +8,8 @@ PUNE = {"lat": 18.6, "lng": 73.9}
 
 
 def test_health_and_public_endpoints(app_client):
-    assert app_client.get("/health").json() == {"status": "ok"}
+    health = app_client.get("/api/v1/health").json()
+    assert health["status"] == "ok" and health["persistent"] is True
     snap = app_client.get("/api/v1/market/snapshot").json()
     assert {r["cropId"] for r in snap} == {"onion", "maize", "soybean", "tur", "tomato"}
     cat = app_client.get("/api/v1/catalogue").json()

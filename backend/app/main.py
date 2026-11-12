@@ -101,4 +101,7 @@ if settings.photo_storage == "disk":
 @app.get(f"{API}/health", tags=["system"], include_in_schema=False)
 @app.get("/health", tags=["system"])
 def health():
-    return {"status": "ok"}
+    """`persistent` is false when a serverless deployment has no PostgreSQL attached:
+    accounts and listings are then lost whenever an instance restarts."""
+    sqlite = settings.database_url.startswith("sqlite")
+    return {"status": "ok", "database": "sqlite" if sqlite else "postgresql", "persistent": not (sqlite and settings.serverless)}
