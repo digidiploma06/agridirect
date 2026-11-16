@@ -101,6 +101,10 @@ export async function resolveFlag(flagId: string, action: 'dismiss' | 'hide' | '
 
 export interface SystemHealth {
   pipeline: PipelineRun[];
+  /** Price rows available to the market chart. */
+  marketRows: number;
+  /** False on a serverless deployment, which cannot ingest or train. */
+  canRunPipeline: boolean;
   modelVersion: string;
   metrics: ModelMetric[];
   audit: AuditEntry[];
@@ -111,10 +115,19 @@ export async function getSystemHealth(): Promise<SystemHealth> {
   requireRole(db, 'admin');
   return delay({
     pipeline: db.pipeline,
+    marketRows: db.pipeline.find((p) => p.source === 'mandi')?.records ?? 0,
+    canRunPipeline: true,
     modelVersion: MODEL_VERSION,
     metrics: db.modelMetrics,
     audit: [...db.audit].reverse().slice(0, 25),
   });
+}
+
+export async function seedMarketData(): Promise<{ inserted: number; remaining: number }> {
+  // Mock mode already ships with a price series, so there is nothing to seed.
+  const db = readDb();
+  requireRole(db, 'admin');
+  return delay({ inserted: 0, remaining: 0 }, 600);
 }
 
 export async function retryPipeline(source: PipelineSource): Promise<void> {

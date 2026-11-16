@@ -1,7 +1,8 @@
 'use client';
 
-import { CheckCircle2, XCircle } from 'lucide-react';
+import { CheckCircle2, MinusCircle, XCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card, PageHeader } from '@/components/ui/Card';
 import { ErrorNote, Loading } from '@/components/ui/States';
@@ -15,6 +16,24 @@ export default function SystemPage() {
   const fmt = useFmt();
   const health = useApi(() => api.getSystemHealth(), []);
   const retry = useAction(api.retryPipeline);
+  const seed = useAction(api.seedMarketData);
+  const [seeded, setSeeded] = useState<number | null>(null);
+
+  // One request only inserts a capped slice of rows (the serverless time limit),
+  // so keep calling until the backend reports nothing left. The pass limit stops
+  // a failing call from spinning forever.
+  async function loadDemoData() {
+    let total = 0;
+    setSeeded(0);
+    for (let pass = 0; pass < 40; pass += 1) {
+      const res = await seed.run();
+      if (!res) break;
+      total += res.inserted;
+      setSeeded(total);
+      if (res.remaining === 0) break;
+    }
+    health.reload();
+  }
 
   if (health.loading && !health.data) return <Loading />;
   if (!health.data) return <ErrorNote code={health.error} onRetry={health.reload} />;
@@ -22,22 +41,28 @@ export default function SystemPage() {
 
   return (
     <div className="space-y-5">
-      <PageHeader title={t('title')} subtitle={t('subtitle')} />
+      <PageHeader title={t('title')} subtitle={h.canRunPipeline ? t('subtitle') : t('subtitleExternal')} />
 
       <Card title={t('pipelinesTitle')}>
         <ul className="grid gap-3 md:grid-cols-3">
           {h.pipeline.map((p) => {
             const ok = p.status === 'ok';
+            // A deployment that cannot run the pipeline has not *failed* at it, so
+            // no red alarm and no retry button that could only answer 409.
+            const elsewhere = !ok && !h.canRunPipeline;
+            const tone = ok ? 'border-leaf-300 bg-leaf-50' : elsewhere ? 'border-gray-300 bg-white' : 'border-red-400 bg-red-50';
+            const icon = ok ? CheckCircle2 : elsewhere ? MinusCircle : XCircle;
+            const Icon = icon;
             return (
-              <li key={p.source} className={`rounded-md border-2 p-3 ${ok ? 'border-leaf-300 bg-leaf-50' : 'border-red-400 bg-red-50'}`}>
+              <li key={p.source} className={`rounded-md border-2 p-3 ${tone}`}>
                 <p className="flex items-center gap-2 font-semibold">
-                  {ok ? <CheckCircle2 aria-hidden className="h-5 w-5 text-leaf-700" /> : <XCircle aria-hidden className="h-5 w-5 text-red-700" />}
-                  {t(`sources.${p.source}`)}: {t(`status.${p.status}`)}
+                  <Icon aria-hidden className={`h-5 w-5 ${ok ? 'text-leaf-700' : elsewhere ? 'text-gray-500' : 'text-red-700'}`} />
+                  {t(`sources.${p.source}`)}: {elsewhere ? t('status.notHere') : t(`status.${p.status}`)}
                 </p>
-                <p className="text-sm text-gray-700">{t('lastRun', { at: fmt.dateTime(p.lastRunAt) })}</p>
-                <p className="text-sm text-gray-700">{t('records', { n: p.records })}</p>
-                {p.message && <p className="text-sm text-gray-600">{p.message}</p>}
-                {!ok && (
+                {!elsewhere && <p className="text-sm text-gray-700">{t('lastRun', { at: fmt.dateTime(p.lastRunAt) })}</p>}
+                {!elsewhere && <p className="text-sm text-gray-700">{t('records', { n: p.records })}</p>}
+                {p.message && !elsewhere && <p className="text-sm text-gray-600">{p.message}</p>}
+                {!ok && !elsewhere && (
                   <Button
                     variant="secondary"
                     className="mt-2"
@@ -56,9 +81,22 @@ export default function SystemPage() {
         </ul>
       </Card>
 
+      <Card title={t('marketDataTitle')}>
+        <p className="text-sm text-gray-700">{t('marketRows', { n: fmt.num(h.marketRows, 0) })}</p>
+        {h.marketRows === 0 && <p className="mt-1 font-medium text-haldi-700">{t('marketEmpty')}</p>}
+        {!h.canRunPipeline && <p className="mt-1 text-sm text-gray-600">{t('pipelineExternal')}</p>}
+        <ErrorNote code={seed.error} />
+        {seed.pending && seeded !== null && <p className="mt-2 text-sm text-gray-700">{t('seedProgress', { n: fmt.num(seeded, 0) })}</p>}
+        <Button variant="secondary" className="mt-3" loading={seed.pending} onClick={loadDemoData}>
+          {t('seedMarket')}
+        </Button>
+        <p className="mt-2 text-sm text-gray-600">{t('seedHint')}</p>
+      </Card>
+
       <Card title={t('modelTitle', { version: h.modelVersion })}>
-        <p className="mb-3 text-sm text-gray-600">{t('modelHint')}</p>
-        <div className="overflow-x-auto">
+        {h.metrics.length === 0 && <p className="text-sm text-gray-700">{t('noMetrics')}</p>}
+        {h.metrics.length > 0 && <p className="mb-3 text-sm text-gray-600">{t('modelHint')}</p>}
+        <div className={h.metrics.length === 0 ? 'hidden' : 'overflow-x-auto'}>
           <table className="w-full min-w-[480px] text-left">
             <thead className="text-sm text-gray-600">
               <tr>

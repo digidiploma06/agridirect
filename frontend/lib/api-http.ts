@@ -244,5 +244,6 @@ export const resolveFlag = (flagId: string, action: 'dismiss' | 'hide' | 'block'
   post<void>(`/admin/flags/${encodeURIComponent(flagId)}/resolve`, { action });
 export const getSystemHealth = () => get<SystemHealth>('/admin/system');
 export const retryPipeline = (source: PipelineSource) => post<void>(`/admin/pipeline/${source}/run`);
+export const seedMarketData = () => post<{ inserted: number; remaining: number }>('/admin/market/seed');
 export const listNotifications = () => get<AppNotification[]>('/notifications');
 export const markNotificationsRead = () => post<void>('/notifications/read');

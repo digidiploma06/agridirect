@@ -83,9 +83,19 @@ the local one in three ways:
 1. **It needs a PostgreSQL database.** Add one (for example Neon from the Vercel
    Marketplace) so that `DATABASE_URL` or `POSTGRES_URL` is set. Without it,
    accounts and listings disappear whenever an instance restarts.
-2. **The ML pipeline does not run on Vercel.** The deployed API only reads
-   predictions from the database. Fill and refresh them from your PC (or any
-   scheduled job) pointed at the same database:
+2. **The ML pipeline does not run on Vercel.** Ingestion and training need
+   numpy, pandas, scikit-learn and LightGBM, which the deployed function does
+   not install. The deployed API only *reads* prices and predictions, so until
+   something fills those tables the market chart has nothing to draw and crop
+   advice falls back to low-confidence neutral signals.
+
+   The quickest fix is in the app: log in as an admin, open **System**, and
+   press **Load demo market data**. That writes two years of seeded sample
+   prices straight from the API — enough for the charts to work. It is
+   simulated data, not real mandi prices, and it adds no trained model.
+
+   For real predictions, run the full pipeline from your PC (or any scheduled
+   job) against the same database:
 
    ```
    cd backend
@@ -93,8 +103,9 @@ the local one in three ways:
    .venv\Scripts\python -m ml.pipeline run
    ```
 
-   Run it again whenever you want fresh predictions. Until the first run, crop
-   advice works but falls back to low-confidence neutral signals.
+   Run it again whenever you want fresh predictions. To load only the price
+   history without the ML packages — on any machine, local or remote — use
+   `python -m app.market_seed` instead.
 3. **Listing photos are stored in the database row** instead of on disk.
 
 Set these environment variables in the Vercel project: `JWT_SECRET` (a long

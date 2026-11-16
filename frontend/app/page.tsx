@@ -68,7 +68,7 @@ export default async function LandingPage() {
                     <h2 className="text-lg font-semibold text-leaf-800">{t('priceTitle')}</h2>
                     <span className="text-sm text-leaf-500">{t('perQuintal')}</span>
                   </div>
-                  <span className="rounded-full bg-leaf-800 px-3 py-1 text-xs font-medium text-white">{t('live')}</span>
+                  {prices.length > 0 && <span className="rounded-full bg-leaf-800 px-3 py-1 text-xs font-medium text-white">{t('live')}</span>}
                 </div>
                 <table className="w-full text-[15px]">
                   <thead className="sr-only">
@@ -80,6 +80,14 @@ export default async function LandingPage() {
                     </tr>
                   </thead>
                   <tbody>
+                    {/* An empty table would read as a broken card, so say why it is empty. */}
+                    {prices.length === 0 && (
+                      <tr className="border-t border-leaf-100">
+                        <td colSpan={4} className="px-5 py-8 text-center text-leaf-500">
+                          {t('priceEmpty')}
+                        </td>
+                      </tr>
+                    )}
                     {prices.map((p) => (
                       <tr key={p.cropId} className="border-t border-leaf-100">
                         <td className="py-3 pl-5 font-semibold text-leaf-800">{tCrop(p.cropId)}</td>

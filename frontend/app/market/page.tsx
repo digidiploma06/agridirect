@@ -10,7 +10,7 @@ import { Disclaimer } from '@/components/insight/Disclaimer';
 import { Card, PageHeader } from '@/components/ui/Card';
 import { SelectField } from '@/components/ui/Field';
 import { Stat } from '@/components/ui/Stat';
-import { ErrorNote, Loading } from '@/components/ui/States';
+import { EmptyState, ErrorNote, Loading } from '@/components/ui/States';
 import { useFmt } from '@/components/useFmt';
 import * as api from '@/lib/api';
 import { useApi } from '@/lib/hooks';
@@ -67,7 +67,18 @@ export default function MarketPage() {
         <Stat label={t('arrivalsLatest')} value={latest ? `${fmt.num(latest.arrivalsT, 0)} t` : '—'} />
       </div>
 
-      <Card title={t('chartTitle')}>{series.data ? <PriceChart data={series.data} /> : <Loading />}</Card>
+      <Card title={t('chartTitle')}>
+        {series.loading && !series.data ? (
+          <Loading />
+        ) : series.data?.length ? (
+          <PriceChart data={series.data} />
+        ) : (
+          // Empty rather than loading: either this mandi has no history for this
+          // crop, or the database has no price rows at all (a fresh deployment
+          // until the pipeline runs or demo data is loaded).
+          <EmptyState title={t('noSeries')}>{t('noSeriesHint')}</EmptyState>
+        )}
+      </Card>
 
       <Card title={t('outlookTitle')}>
         {demand.loading && !demand.data && <Loading />}

@@ -54,6 +54,7 @@ export {
   markNotificationsRead,
   resolveFlag,
   retryPipeline,
+  seedMarketData,
   verifyCompany,
   type SystemHealth,
 } from './mock/server/admin';

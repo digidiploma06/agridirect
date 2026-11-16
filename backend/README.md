@@ -49,9 +49,11 @@ app/
   signals.py       reads ML predictions; cold-start fallback; live platform demand
   domain/          pure rules: matching score, deal state machine, validators, advice
   routers/         auth, insights, marketplace, deals, admin
-  seed.py          demo data
+  seed.py          demo accounts, listings and deals
+  synthetic.py     sample mandi + weather generator (clearly not real data; stdlib only)
+  market_seed.py   writes that sample history into the database without the ML packages
 ml/
-  synthetic.py     sample mandi + weather generator (clearly not real data)
+  synthetic.py     re-exports app/synthetic.py for the pipeline
   ingest.py        data sources, retries, pipeline_runs log, CSV import
   features.py      weekly features per crop x mandi (TRD 7.2)
   train.py         walk-forward validation, baselines, model card
@@ -86,6 +88,20 @@ python -m ml.pipeline train            # retrain now
 python -m ml.pipeline import-csv FILE  # load historical mandi prices
 python -m ml.pipeline purge-synthetic  # delete the sample data before going live
 ```
+
+Where the ML packages cannot be installed -- the serverless deployment, most
+of all -- the price history can still be loaded on its own, so the market
+chart has something to draw:
+
+```bash
+python -m app.market_seed              # two years of weekly sample prices
+python -m app.market_seed --weeks 260  # five years
+```
+
+It only needs the API requirements, only adds rows that are missing, and
+writes no predictions: the demand outlook keeps its no-model fallback until
+the pipeline runs somewhere that can train. The admin System page exposes the
+same thing as **Load demo market data**.
 
 - **Model**: LightGBM regression on the log price change 4, 8 and 12 weeks
   ahead (one model per horizon, pooled over crops and mandis). The app serves the 8-week horizon.

@@ -65,5 +65,6 @@ export const verifyCompany = impl.verifyCompany;
 export const resolveFlag = impl.resolveFlag;
 export const getSystemHealth = impl.getSystemHealth;
 export const retryPipeline = impl.retryPipeline;
+export const seedMarketData = impl.seedMarketData;
 export const listNotifications = impl.listNotifications;
 export const markNotificationsRead = impl.markNotificationsRead;

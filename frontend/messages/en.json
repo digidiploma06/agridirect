@@ -209,7 +209,8 @@
     "footer": "AgriDirect · Crop advice is indicative. Check with your local agriculture officer before sowing.",
     "privacy": "Privacy notice",
     "badge": "Pilot · Pune division · 5 crops",
-    "live": "Updated weekly"
+    "live": "Updated weekly",
+    "priceEmpty": "Mandi prices are not available yet."
   },
   "login": {
     "title": "Log in",
@@ -458,7 +459,9 @@
     "chartLabel": "Line chart of weekly modal price with bars for arrivals",
     "modal": "Modal price (₹/q)",
     "arrivals": "Arrivals (t)",
-    "outlookTitle": "Demand outlook for this district"
+    "outlookTitle": "Demand outlook for this district",
+    "noSeries": "No price history for this crop at this mandi",
+    "noSeriesHint": "Try another mandi or crop. If every combination is empty, the market data has not been loaded yet."
   },
   "company": {
     "verification": {
@@ -585,7 +588,8 @@
       "status": {
         "ok": "OK",
         "failed": "Failed",
-        "running": "Running"
+        "running": "Running",
+        "notHere": "Runs elsewhere"
       },
       "lastRun": "Last run {at}",
       "records": "{n} records",
@@ -597,7 +601,16 @@
       "mapeBaseline": "Baseline MAPE",
       "f1": "Demand F1",
       "f1Baseline": "Baseline F1",
-      "auditTitle": "Audit log (latest)"
+      "auditTitle": "Audit log (latest)",
+      "marketDataTitle": "Market data",
+      "marketRows": "{n} weekly price rows in the database.",
+      "marketEmpty": "No price data yet, so the market chart has nothing to draw.",
+      "pipelineExternal": "This deployment cannot ingest or train (serverless). Run the pipeline on a machine with the ML packages, or load demo data below.",
+      "seedMarket": "Load demo market data",
+      "seedHint": "Adds two years of seeded sample prices so the charts work. This is simulated data, not real mandi prices. Safe to run again — it only adds missing weeks.",
+      "seedProgress": "{n} rows loaded so far...",
+      "noMetrics": "No trained model on this deployment, so there are no hold-out results to show. Training runs where the pipeline runs.",
+      "subtitleExternal": "Ingestion and training run outside this deployment. Market data loaded here is shown below."
     }
   },
   "privacy": {

@@ -8,6 +8,7 @@ from typing import Optional
 from fastapi import APIRouter, BackgroundTasks, Request, Response
 from sqlalchemy import func, select
 
+from .. import market_seed
 from ..config import settings
 from ..db import SessionLocal
 from ..deps import Admin, CurrentUser, Db, audit, notify
@@ -15,13 +16,14 @@ from ..domain.dates import now_iso
 from ..domain.deals import ACTION_TARGET
 from ..domain.validation import sanitize_text
 from ..errors import ApiError
-from ..models import AuditLog, CompanyProfile, Deal, Flag, Listing, Notification, PipelineRun, Requirement, User
+from ..models import AuditLog, CompanyProfile, Deal, Flag, Listing, MarketPrice, Notification, PipelineRun, Requirement, User
 from ..schemas import FlagResolve, UserStatusIn, VerifyIn
 from ..signals import active_model
 from ..views import company_view, deal_view, listing_view, user_view
 
 router = APIRouter(tags=["admin"])
 ALL_STATUSES = ["enquiry", "offer_sent", "negotiation", "accepted", "rejected", "cancelled", "completed"]
+SEED_ROWS_PER_CALL = 8000
 assert set(ACTION_TARGET.values()) <= set(ALL_STATUSES)
 
 
@@ -167,6 +169,10 @@ def system_health(admin: Admin, db: Db):
     entries = db.scalars(select(AuditLog).order_by(AuditLog.at.desc()).limit(25)).all()
     return {
         "pipeline": _pipeline_status(db),
+        # How much price history the charts have to draw, and whether this
+        # deployment can produce more itself (serverless cannot: see seed.py).
+        "marketRows": db.scalar(select(func.count()).select_from(MarketPrice)) or 0,
+        "canRunPipeline": settings.run_pipeline,
         "modelVersion": model.version if model else "none",
         "metrics": ui_metrics(card),
         "audit": [{k: v for k, v in {"id": a.id, "actorId": a.actor_id, "action": a.action, "entity": a.entity, "entityId": a.entity_id, "before": a.before, "after": a.after, "at": a.at}.items() if v is not None} for a in entries],
@@ -184,6 +190,24 @@ def model_card(admin: Admin, db: Db):
     if model is None:
         raise ApiError(404, "not_found")
     return model.metrics
+
+
+@router.post("/admin/market/seed")
+def seed_market_data(admin: Admin, db: Db, request: Request, weeks: int = market_seed.DEFAULT_WEEKS):
+    """Fill an empty database with the demo price history the charts need.
+
+    Deliberately available when the pipeline is not: a serverless deployment
+    cannot ingest or train, so without this a fresh deploy has no price rows
+    and an empty market chart. Idempotent -- re-running only adds new weeks.
+    """
+    if not 4 <= weeks <= 520:
+        raise ApiError(422, "invalid_request", "weeks must be between 4 and 520")
+    # Capped so one request stays well inside the serverless time limit; the
+    # client calls again while `remaining` is above zero.
+    n, remaining = market_seed.seed_market(db, weeks, max_rows=SEED_ROWS_PER_CALL)
+    audit(db, admin.id, "market.seed", "market_prices", "synthetic", after={"rows": n, "weeks": weeks}, ip=_ip(request))
+    db.commit()
+    return {"inserted": n, "remaining": remaining, "source": "synthetic"}
 
 
 @router.post("/admin/pipeline/{source}/run", status_code=204)
