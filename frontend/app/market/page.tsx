@@ -8,6 +8,7 @@ import { ExplanationList } from '@/components/insight/Explanation';
 import { InsightChips } from '@/components/insight/InsightChips';
 import { Disclaimer } from '@/components/insight/Disclaimer';
 import { Card, PageHeader } from '@/components/ui/Card';
+import { CropArt } from '@/components/ui/CropArt';
 import { SelectField } from '@/components/ui/Field';
 import { Stat } from '@/components/ui/Stat';
 import { EmptyState, ErrorNote, Loading } from '@/components/ui/States';
@@ -28,6 +29,7 @@ function change(series: PricePoint[], weeks: number): number | null {
 
 export default function MarketPage() {
   const t = useTranslations('market');
+  const tCrop = useTranslations('crops');
   const fmt = useFmt();
   const { session } = useSession();
   const homeDistrict = session?.farmer?.districtId ?? session?.company?.districtId;
@@ -60,6 +62,14 @@ export default function MarketPage() {
       </div>
 
       <ErrorNote code={series.error} onRetry={series.reload} />
+
+      <div className="flex items-center gap-4">
+        <CropArt cropId={cropId} size={72} className="shrink-0" />
+        <div>
+          <p className="text-xl font-semibold text-leaf-800">{tCrop(cropId)}</p>
+          <p className="text-gray-600">{mandi.name}</p>
+        </div>
+      </div>
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         <Stat label={t('latestModal')} value={latest ? fmt.perQuintal(latest.modalPrice) : '—'} hint={latest && t('weekOf', { date: fmt.date(latest.week) })} />

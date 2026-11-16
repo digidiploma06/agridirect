@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { useState, type FormEvent } from 'react';
 import { RecommendationCard } from '@/components/advice/RecommendationCard';
+import { ScoreChart } from '@/components/advice/ScoreChart';
 import { DistrictOptions, EnumOptions, IRRIGATION, SOIL } from '@/components/forms/options';
 import { Disclaimer } from '@/components/insight/Disclaimer';
 import { Button } from '@/components/ui/Button';
@@ -74,6 +75,11 @@ export default function AdvicePage() {
             <EmptyState title={t('noResults')} />
           ) : (
             <div className="grid items-start gap-4 lg:grid-cols-2">
+              {result.recommendations.length > 1 && (
+                <Card title={t('compareTitle')}>
+                  <ScoreChart recs={result.recommendations} />
+                </Card>
+              )}
               {result.recommendations.map((rec) => (
                 <RecommendationCard key={rec.cropId} rec={rec} />
               ))}

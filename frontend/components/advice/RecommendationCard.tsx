@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { ExplanationList, useExplain } from '@/components/insight/Explanation';
 import { InsightChips } from '@/components/insight/InsightChips';
+import { CropArt } from '@/components/ui/CropArt';
 import { useFmt } from '@/components/useFmt';
 import type { Recommendation } from '@/lib/types';
 
@@ -17,10 +18,11 @@ export function RecommendationCard({ rec }: { rec: Recommendation }) {
 
   return (
     <article className={`rounded-2xl border bg-white p-4 ${rec.rank === 1 ? 'border-gray-300 border-l-4 border-l-haldi-500' : 'border-gray-300'}`}>
-      <header className="mb-3 flex items-baseline gap-3">
-        <span className="w-8 shrink-0 text-2xl font-semibold tabular-nums text-haldi-700" aria-label={t('rank', { rank: rec.rank })}>
-          {rec.rank}.
+      <header className="mb-3 flex items-center gap-3">
+        <span className="w-6 shrink-0 text-2xl font-semibold tabular-nums text-haldi-700" aria-label={t('rank', { rank: rec.rank })}>
+          {rec.rank}
         </span>
+        <CropArt cropId={rec.cropId} size={52} className="shrink-0" />
         <div className="flex-1">
           <h3 className="text-xl font-semibold">{tCrop(rec.cropId)}</h3>
           <p className="text-sm text-gray-600">

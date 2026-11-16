@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import { DealFunnel } from '@/components/admin/DealFunnel';
 import { FlagQueue } from '@/components/admin/FlagQueue';
 import { DealCard } from '@/components/deals/DealCard';
 import { Card, PageHeader } from '@/components/ui/Card';
@@ -9,13 +10,9 @@ import { Stat } from '@/components/ui/Stat';
 import { ErrorNote, Loading } from '@/components/ui/States';
 import * as api from '@/lib/api';
 import { useApi } from '@/lib/hooks';
-import type { DealStatus } from '@/lib/types';
-
-const STATUSES: DealStatus[] = ['enquiry', 'offer_sent', 'negotiation', 'accepted', 'completed', 'rejected', 'cancelled'];
 
 export default function AdminOverviewPage() {
   const t = useTranslations('admin.overview');
-  const tStatus = useTranslations('dealStatus');
   const overview = useApi(() => api.getAdminOverview(), []);
 
   if (overview.loading && !overview.data) return <Loading />;
@@ -36,13 +33,9 @@ export default function AdminOverviewPage() {
       </div>
 
       <Card title={t('dealsTitle')}>
-        <ul className="mb-4 flex flex-wrap gap-2">
-          {STATUSES.map((s) => (
-            <li key={s} className="rounded-md border border-gray-200 px-3 py-2">
-              <span className="text-sm text-gray-600">{tStatus(s)}</span> <span className="font-bold">{o.dealsByStatus[s]}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="mb-5">
+          <DealFunnel counts={o.dealsByStatus} />
+        </div>
         <div className="space-y-2">
           {o.recentDeals.map((d) => (
             <DealCard key={d.id} deal={d} />

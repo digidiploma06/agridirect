@@ -3,6 +3,8 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { TopBar } from '@/components/AppShell';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { ButtonLink } from '@/components/ui/Button';
+import { CropArt } from '@/components/ui/CropArt';
+import { FieldScene } from '@/components/ui/FieldScene';
 import { getPriceSnapshot } from '@/lib/api';
 import { formatNumber, formatRupees } from '@/lib/format';
 import { isLocale } from '@/lib/i18n';
@@ -90,7 +92,12 @@ export default async function LandingPage() {
                     )}
                     {prices.map((p) => (
                       <tr key={p.cropId} className="border-t border-leaf-100">
-                        <td className="py-3 pl-5 font-semibold text-leaf-800">{tCrop(p.cropId)}</td>
+                        <td className="py-3 pl-4 font-semibold text-leaf-800">
+                          <span className="flex items-center gap-2">
+                            <CropArt cropId={p.cropId} size={32} tile={false} className="shrink-0" />
+                            {tCrop(p.cropId)}
+                          </span>
+                        </td>
                         <td className="py-3 text-leaf-500">{p.mandiName}</td>
                         <td className="py-3 text-right font-semibold tabular-nums text-leaf-800">{formatRupees(p.modalPrice, locale)}</td>
                         <td className="py-3 pl-3 pr-5 text-right">
@@ -108,7 +115,10 @@ export default async function LandingPage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 pb-14 pt-4">
+        {/* The whole product in one picture, between the pitch and the steps. */}
+        <FieldScene className="h-[180px] w-full sm:h-[230px] lg:h-[280px]" />
+
+        <section className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10 pb-14 pt-10">
           <h2 className="mb-6 text-[1.75rem] font-semibold text-leaf-800">{t('howTitle')}</h2>
           <ol className="grid gap-4 md:grid-cols-3">
             {STEPS.map((key, i) => (

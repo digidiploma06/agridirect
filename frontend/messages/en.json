@@ -316,7 +316,9 @@
       "rain_low": "Rainfall over the last 8 weeks is {pct}% below normal, which can tighten supply.",
       "rain_high": "Rainfall over the last 8 weeks is {pct}% above normal, which usually means more supply later.",
       "zone_good": "This crop is widely grown in your region."
-    }
+    },
+    "compareTitle": "How they compare",
+    "scoreHint": "Score out of 100, combining how well the crop suits your land and how the demand looks."
   },
   "listings": {
     "title": "My listings",
@@ -461,7 +463,8 @@
     "arrivals": "Arrivals (t)",
     "outlookTitle": "Demand outlook for this district",
     "noSeries": "No price history for this crop at this mandi",
-    "noSeriesHint": "Try another mandi or crop. If every combination is empty, the market data has not been loaded yet."
+    "noSeriesHint": "Try another mandi or crop. If every combination is empty, the market data has not been loaded yet.",
+    "range": "Min–max range"
   },
   "company": {
     "verification": {

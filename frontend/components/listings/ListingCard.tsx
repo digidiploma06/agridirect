@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import type { ReactNode } from 'react';
 import { ListingStatusBadge } from '@/components/deals/StatusBadge';
 import { useDistrictName } from '@/components/forms/options';
+import { CropArt } from '@/components/ui/CropArt';
 import { useFmt } from '@/components/useFmt';
 import type { ListingView } from '@/lib/views';
 
@@ -25,9 +26,12 @@ export function ListingCard({ listing, href, extra, footer }: Props) {
 
   const body = (
     <div className="flex items-start gap-3">
-      {listing.photos[0] && (
+      {listing.photos[0] ? (
         // eslint-disable-next-line @next/next/no-img-element -- local data URL preview
         <img src={listing.photos[0]} alt="" className="h-16 w-16 shrink-0 rounded-md object-cover" />
+      ) : (
+        // No photo yet: the crop drawing keeps the row from being a wall of text.
+        <CropArt cropId={listing.cropId} size={64} className="shrink-0" />
       )}
       <div className="min-w-0 flex-1 space-y-1">
         <div className="flex flex-wrap items-center gap-2">
